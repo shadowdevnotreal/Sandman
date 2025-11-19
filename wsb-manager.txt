@@ -1,0 +1,9 @@
+# Run once
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\wsb-manager.ps1
+
+
+
+
+New-Sandbox      # jumps straight to the creation flow
+Edit-Sandbox     # choose a file to edit in Notepad
+Launch-Sandbox   # choose, auto-validate, then launch
