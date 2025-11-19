@@ -1,0 +1,63 @@
+# Sandman .gitignore
+
+# Backups
+*.bak
+*.old
+*.backup
+backups/
+
+# Logs
+logs/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Workspace configurations (user-specific)
+# Uncomment if you don't want to track workspace files
+# *.wsb
+# *.sandbox
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Node.js (if adding web UI in future)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist/
+build/
+*.exe
+*.msi
+
+# Multi-agent temp files (cleanup after use)
+issues-inventory.json
+dependency-graph.json
+execution-plan.json
+pattern-library.md
+
+# Keep project-resolution-log.md if it exists
+!project-resolution-log.md

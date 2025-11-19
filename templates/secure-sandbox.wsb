@@ -1,0 +1,37 @@
+<Configuration>
+  <!-- Secure Sandbox Configuration -->
+  <!-- Maximum isolation, no network, read-only shares -->
+
+  <!-- Memory: 2GB (sufficient for secure testing) -->
+  <MemoryInMB>2048</MemoryInMB>
+
+  <!-- Networking: DISABLED for security -->
+  <Networking>Disable</Networking>
+
+  <!-- Virtual GPU: Disabled (software rendering only) -->
+  <VGpu>Disable</VGpu>
+
+  <!-- Audio/Video: Disabled for security -->
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+
+  <!-- Printer redirection: Disabled -->
+  <PrinterRedirection>Disable</PrinterRedirection>
+
+  <!-- Clipboard redirection: Disabled for security -->
+  <ClipboardRedirection>Disable</ClipboardRedirection>
+
+  <!-- Protected RDP client mode for extra isolation -->
+  <ProtectedClient>Enable</ProtectedClient>
+
+  <!-- No mapped folders for maximum isolation -->
+  <!-- If you need to share files, use read-only mode: -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\SecureShare</HostFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>

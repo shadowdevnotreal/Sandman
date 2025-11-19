@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "workspace": {
+    "windows": "%USERPROFILE%\\Documents\\wsb-files",
+    "linux": "~/.local/share/sandman",
+    "macos": "~/Library/Application Support/Sandman"
+  },
+  "git": {
+    "includeCoAuthoredBy": false,
+    "autoCommit": false,
+    "commitTemplate": "feat: ${description}"
+  },
+  "editor": {
+    "windows": "notepad.exe",
+    "linux": "nano",
+    "macos": "nano"
+  },
+  "sandbox": {
+    "defaultMemoryMB": 4096,
+    "defaultNetworking": "Default",
+    "autoBackup": true,
+    "backupSuffix": ".bak"
+  },
+  "validation": {
+    "minMemoryMB": 256,
+    "maxMemoryMB": 131072,
+    "allowedNetworking": ["Default", "Disable"],
+    "allowedVGpu": ["Default", "Disable"],
+    "allowedAudioInput": ["Default", "Enable", "Disable"],
+    "allowedVideoInput": ["Default", "Enable", "Disable"],
+    "allowedPrinterRedirection": ["Enable", "Disable"],
+    "allowedClipboardRedirection": ["Enable", "Disable"],
+    "allowedProtectedClient": ["Enable", "Disable"],
+    "allowedReadOnly": ["true", "false"]
+  },
+  "preInstall": {
+    "windows": {
+      "enabled": true,
+      "packages": [
+        "git",
+        "vscode",
+        "notepadplusplus"
+      ],
+      "customCommands": []
+    },
+    "linux": {
+      "enabled": true,
+      "packages": [
+        "git",
+        "vim",
+        "docker.io",
+        "build-essential"
+      ],
+      "customCommands": []
+    },
+    "macos": {
+      "enabled": true,
+      "packages": [
+        "git",
+        "vim"
+      ],
+      "customCommands": []
+    }
+  },
+  "paths": {
+    "templatesDir": "templates",
+    "backupDir": "backups",
+    "logsDir": "logs"
+  }
+}
