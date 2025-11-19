@@ -1,0 +1,27 @@
+<Configuration>
+  <!-- Python Data Science Sandbox Configuration -->
+  <!-- High memory for data analysis and machine learning -->
+
+  <MemoryInMB>16384</MemoryInMB>
+  <Networking>Default</Networking>
+  <VGpu>Default</VGpu>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+  <ProtectedClient>Disable</ProtectedClient>
+
+  <!-- Map data and projects folders -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\DataScience\Projects</HostFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\DataScience\Datasets</HostFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>

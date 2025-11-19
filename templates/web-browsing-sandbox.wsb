@@ -1,0 +1,23 @@
+<Configuration>
+  <!-- Web Browsing Sandbox Configuration -->
+  <!-- Safe browsing environment for untrusted websites -->
+
+  <MemoryInMB>4096</MemoryInMB>
+  <Networking>Default</Networking>
+  <VGpu>Default</VGpu>
+  <AudioInput>Default</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <PrinterRedirection>Enable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+  <ProtectedClient>Enable</ProtectedClient>
+
+  <!-- Map downloads folder if needed -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Users\YourName\Downloads\SandboxDownloads</HostFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>
