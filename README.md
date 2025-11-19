@@ -1,5 +1,8 @@
 # Sandman - Windows Sandbox Manager
 
+<img width="1536" height="1024" alt="ChatGPT Image Nov 19, 2025, 03_00_19 PM" src="https://github.com/user-attachments/assets/0205a8ec-fa74-4029-b641-cc01d349ec86" />
+
+
 > Simple, powerful Windows Sandbox configuration and management
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
