@@ -10,9 +10,42 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](https://github.com/shadowdevnotreal/Sandman)
+[![Version](https://img.shields.io/badge/Version-1.1.0-green)](https://github.com/shadowdevnotreal/Sandman/releases)
 [![Made with PowerShell](https://img.shields.io/badge/Made%20with-PowerShell-blue)](https://github.com/PowerShell/PowerShell)
 
+### 🎉 **NEW in v1.1.0**: Web UI | PowerShell Module | 11 Templates | Custom Themes | Import/Export
+
 </div>
+
+---
+
+## 🆕 What's New in v1.1.0
+
+<table>
+<tr>
+<td width="50%">
+
+### 🌐 Web-Based UI
+Beautiful Flask-powered interface accessible at `http://localhost:5000`. Manage configurations through your browser with a modern, responsive design!
+
+### 🔌 PowerShell Module
+Professional module with 7 cmdlets for scripting and automation. Use Sandman in your own PowerShell workflows!
+
+</td>
+<td width="50%">
+
+### 📦 11 Specialized Templates
+From gaming to malware analysis - we've got templates for every scenario. 7 new templates added!
+
+### 🎨 5 Custom Themes
+Cyberpunk, Matrix, Ocean, Minimalist, or Default. Make your terminal match your style!
+
+### 📤 Import/Export
+Share configurations with your team. Backup and restore made easy!
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -452,32 +485,53 @@ See [LICENSE](LICENSE) for the boring legal stuff.
 - 💡 A systematic, quality-focused approach
 - ❤️ Love for Windows Sandbox
 
+**Technologies:**
+- PowerShell 5.1+
+- Python 3.6+ (Flask)
+- HTML5/CSS3/JavaScript
+- Windows Sandbox API
+
 **Special thanks to:**
 - Windows Sandbox team at Microsoft
+- Flask framework contributors
 - Everyone who uses and contributes to Sandman
 - You, for reading this far! 🎉
 
+## 🌟 Star History
+
+If Sandman makes your life easier, give us a star! ⭐
+
+Every star motivates us to add more features and improve the project!
+
 ---
-
-## 🎉 New in v1.1.0
-
-- ✅ **Web-based UI** - Sleek Flask-based web interface
-- ✅ **10+ Templates** - Specialized configs for every use case
-- ✅ **PowerShell Module** - Use Sandman in your own scripts
-- ✅ **Import/Export** - Share and backup configurations
-- ✅ **5 Custom Themes** - Personalize your terminal experience
 
 ## 🗺️ Roadmap
 
-What's coming next:
+### ✅ Completed (v1.1.0)
 
-- [ ] 🤖 CI/CD integration helpers
-- [ ] 📊 Usage statistics and analytics
-- [ ] 🔄 Configuration version control
-- [ ] 🎯 Preset profiles (gaming, dev, security)
-- [ ] 🌍 Multi-language support
+- ✅ **Web-based UI** - Beautiful Flask interface
+- ✅ **PowerShell Module** - Professional automation module
+- ✅ **11 Specialized Templates** - Templates for every use case
+- ✅ **Import/Export** - Share and backup configurations
+- ✅ **5 Custom Themes** - Personalize your experience
 
-Got ideas? [Let us know!](https://github.com/shadowdevnotreal/Sandman/discussions)
+### 🚀 Coming Soon (v1.2.0)
+
+- [ ] 🤖 **CI/CD Integration Helpers** - GitHub Actions, Azure DevOps templates
+- [ ] 📊 **Usage Analytics** - Track sandbox usage and statistics
+- [ ] 🔄 **Configuration Version Control** - Git integration for configs
+- [ ] 🎯 **Quick Launch Profiles** - One-click preset environments
+- [ ] 🔔 **Notifications** - Desktop notifications for sandbox events
+
+### 🌟 Future Ideas (v2.0.0+)
+
+- [ ] 🌍 **Multi-Language Support** - UI translations
+- [ ] 📱 **Mobile Management** - Control sandboxes from your phone
+- [ ] 🤝 **Team Workspaces** - Shared configuration repositories
+- [ ] 🔐 **Secrets Management** - Secure credential storage
+- [ ] 📈 **Performance Monitoring** - Resource usage tracking
+
+Got ideas? [Share them with us!](https://github.com/shadowdevnotreal/Sandman/discussions)
 
 ---
 
@@ -496,18 +550,30 @@ Need help?
 
 **🟢 Active Development** - Regularly maintained and updated!
 
-### Version 1.1.0 (Current)
+### Version 1.1.0 (November 2024) - MAJOR UPDATE 🎉
 
-- ✅ PowerShell, Python, and Bash script versions
-- ✅ Web-based UI with Flask
-- ✅ PowerShell module for scripting
-- ✅ 11 specialized templates
-- ✅ Import/Export functionality
-- ✅ 5 custom terminal themes
+**What's New:**
+- 🌐 Web-based UI (Flask)
+- 🔌 PowerShell Module (7 cmdlets)
+- 📦 11 Specialized Templates (7 new!)
+- 📤 Import/Export Functionality
+- 🎨 5 Custom Themes
+
+**Core Features:**
+- ✅ 3 Script versions (PowerShell, Python, Bash)
 - ✅ Multi-modification mode with live preview
 - ✅ Automated Windows Sandbox enablement
 - ✅ Interactive menus with validation
 - ✅ Automatic configuration backups
+- ✅ Template system
+- ✅ REST API
+
+**Statistics:**
+- 📁 23 new files
+- 💻 2,724+ lines of code
+- 📚 3 new documentation guides
+- 🎯 8 REST API endpoints
+- 🔧 7 PowerShell cmdlets
 
 ---
 
