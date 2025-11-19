@@ -1,379 +1,505 @@
-# Windows Sandbox Manager - Complete Package
+# Sandman - Multi-Agent Sandbox Management System
 
-## 📦 What You're Getting
+> **Measure twice, cut once** - A systematic approach to sandbox configuration perfection
 
-This package includes the enhanced Windows Sandbox Manager with all fixes, improvements, and comprehensive documentation.
+## Overview
 
----
-
-## 📂 Files Included
-
-### ⭐ **Main Scripts**
-
-1. **wsb-manager-fixed.ps1** 
-   - Original script with syntax errors fixed
-   - Bug: Backup error fixed
-   - Bug: Extra parenthesis fixed
-   - Bug: Unicode dash characters fixed
-   - Status: ✅ Works, but single-change mode
-
-2. **wsb-manager-enhanced.ps1** ⭐ **RECOMMENDED**
-   - All fixes from above PLUS
-   - Multi-modification mode (your request!)
-   - Live configuration preview
-   - Save/Discard options
-   - Visual feedback and improvements
-   - Status: ✅ Enhanced UX, production-ready
+Sandman is an advanced, cross-platform sandbox management system powered by a multi-agent architecture (cot → cot+ → cot++). It combines the power of Windows Sandbox configuration with a systematic code quality framework that ensures precision, reliability, and continuous improvement.
 
 ---
 
-### 📚 **Documentation**
+## Multi-Agent Architecture
 
-1. **QUICK_REFERENCE.md** 🔖
-   - Quick start guide
-   - Menu reference
-   - Allowed values
-   - Common use cases
-   - Troubleshooting
-   - **Read this first for day-to-day use**
+### Philosophy: Measure Twice, Cut Once
 
-2. **ENHANCEMENT_CHANGELOG.md** 📋
-   - Complete list of improvements
-   - Before/after workflows
-   - Feature comparison table
-   - Technical details
-   - Future enhancement ideas
-   - **Read this to understand what changed**
+The system employs three sequential teams that transform chaos into systematic excellence:
 
-3. **BEFORE_AFTER_COMPARISON.md** 🔍
-   - Side-by-side v2 vs v3 comparison
-   - Time savings examples
-   - Visual workflow diagrams
-   - Real-world scenarios
-   - **Read this to see the value**
+```
+┌─────────────────────────────────────────────────────────────┐
+│  cot (Design)  →  cot+ (Implementation)  →  cot++ (Audit)  │
+└─────────────────────────────────────────────────────────────┘
+     Analysis           Execution              Verification
+```
 
-4. **FIXES_APPLIED.md** 🐛
-   - Original syntax errors explained
-   - Line-by-line fixes
-   - Root cause analysis
-   - **Read this if you're curious about the bugs**
+### The Three Phases
+
+#### Phase 1: cot (Design Team)
+
+**Agents:**
+- **Scout**: Detects all issues across the codebase
+  - Output: `issues-inventory.json` (P0/P1/P2/P3 priority)
+  - Identifies bugs, inefficiencies, security concerns, and design flaws
+
+- **Architect**: Maps dependencies and execution order
+  - Output: `dependency-graph.json`
+  - Prevents conflicts, ensures logical flow
+
+- **Strategist**: Prioritizes and batches work
+  - Output: `execution-plan.json`
+  - Groups by feature/page for efficient execution
+  - Priority formula: `(Urgency×10) + (Impact×5) - (Complexity×2) + (Enables×3)`
+
+**Handoff**: Analysis complete, plan approved → cot+
 
 ---
 
-## 🚀 Getting Started (3 Steps)
+#### Phase 2: cot+ (Implementation Team)
 
-### Step 1: Choose Your Version
+**Agents:**
+- **Executor**: Implements one batch at a time
+  - Completes entire batch before moving to next
+  - Applies learned patterns from previous batches
 
-**Recommended:** `wsb-manager-enhanced.ps1`
-- Everything from fixed version
-- Plus multi-change mode (your request)
-- Plus live preview
-- Plus much more
+- **Validator**: Tests immediately after each change
+  - Blocks progression if any gate fails
+  - Gates: Functionality ✓ No regressions ✓ Design match ✓ Responsive ✓ Performance ✓
 
-**Alternative:** `wsb-manager-fixed.ps1`
-- Just the bug fixes
-- Original single-change behavior
-- Use if you prefer the old workflow
+- **Documenter**: Records patterns to `pattern-library.md`
+  - Captures successful solutions
+  - Accelerates future batches through pattern reuse
 
-### Step 2: Run It
+**Handoff**: All batches complete, tests passing → cot++
+
+---
+
+#### Phase 3: cot++ (Audit Team)
+
+**Agents:**
+- **Auditor**: Verifies all issues resolved
+  - Cross-references against original `issues-inventory.json`
+  - Ensures no new critical issues introduced
+
+- **Regression**: Tests untouched areas
+  - Full test suite execution
+  - Visual diff comparison
+
+- **Certifier**: Final approval and cleanup
+  - Deletes temporary files
+  - Generates `project-resolution-log.md`
+  - Issues APPROVE or BLOCK decision
+
+**Output**: Only `project-resolution-log.md` remains
+
+---
+
+## Incremental Logic Chain
+
+```
+Scout → Architect → Strategist → Executor → Validator → Documenter
+  ↓        ↓           ↓            ↓          ↓           ↓
+Plan   Structure   Prioritize   Implement   Test    Learn & Apply
+  ↓                                                        ↓
+(cot) ─────────────────────────────────────────────────→ (cot+) → (cot++)
+                                                           ↓
+                                            Patterns feed back to next cycle
+```
+
+**Key Insight**: The Documenter's patterns feed into the next Strategist cycle, creating a learning loop that accelerates work and reduces rework.
+
+---
+
+## Platform Support
+
+Sandman works on **all major platforms**:
+
+- **Windows**: PowerShell scripts + Windows Sandbox (.wsb)
+- **Linux**: Bash scripts + systemd-nspawn / Docker
+- **macOS**: Bash scripts + Docker / VM solutions
+
+---
+
+## Quick Start
+
+### Windows (PowerShell)
 
 ```powershell
-# Quick run (bypass execution policy once)
-PowerShell -ExecutionPolicy Bypass -File .\wsb-manager-enhanced.ps1
+# Run the enhanced manager
+PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1
 
-# OR unblock permanently
-Unblock-File -Path .\wsb-manager-enhanced.ps1
-.\wsb-manager-enhanced.ps1
+# Or with multi-agent system
+.\multi-agent-orchestrator.ps1
 ```
 
-### Step 3: Try Multi-Change Mode
+### Linux/macOS (Bash)
 
-```
-1. Press [5] for Modify
-2. Select a file
-3. Make multiple changes
-4. See live preview after each change
-5. Press [11] to save all changes at once
+```bash
+# Make executable
+chmod +x sandman.sh
+
+# Run the manager
+./sandman.sh
+
+# Or with multi-agent system
+./multi-agent-orchestrator.sh
 ```
 
 ---
 
-## 🎯 What Problems Does This Solve?
+## Features
 
-### ❌ Original Issues (v2)
+### Core Capabilities
 
-1. **Syntax errors** - Script wouldn't run
-   - Unicode dash characters on lines 137, 303
-   - Extra parenthesis on line 372
-   - Backup function crashed on error
+- **Create** sandbox configurations with guided wizards
+- **List** all sandbox configurations with metadata
+- **Edit** configurations in your preferred editor
+- **Validate** configurations before deployment
+- **Modify** configurations with interactive menus
+- **Launch** sandboxes with pre-flight validation
+- **Multi-change mode** for batch modifications
 
-2. **Poor UX** - Your feedback
-   - "after each change, it takes me back to the previous screen"
-   - Had to reselect file for every single change
-   - No way to batch changes
-   - No preview of current configuration
-   - No undo/discard option
+### Multi-Agent Features
 
-### ✅ Solutions (v3 Enhanced)
-
-1. **All bugs fixed**
-   - Replaced Unicode dashes with ASCII hyphens
-   - Removed extra parenthesis
-   - Added error handling for backup
-
-2. **Enhanced UX** - Addresses your requests
-   - Multi-modification mode - stay in context!
-   - Live configuration preview after each change
-   - Batch all changes, save once
-   - Discard option if you make mistakes
-   - Visual feedback with checkmarks
-   - Current value display in prompts
+- **Automated issue detection** across entire project
+- **Dependency mapping** to prevent conflicts
+- **Smart prioritization** based on impact and urgency
+- **Pattern learning** that accelerates future work
+- **Comprehensive validation** at every step
+- **Regression testing** to ensure quality
+- **Audit trail** in `project-resolution-log.md`
 
 ---
 
-## 📊 Feature Matrix
+## Configuration
 
-| Feature | Fixed (v2) | Enhanced (v3) |
-|---------|------------|---------------|
-| **Fixes bugs** | ✅ | ✅ |
-| **Runs without errors** | ✅ | ✅ |
-| **Single changes** | ✅ | ✅ |
-| **Multi-change mode** | ❌ | ✅ ⭐ |
-| **Live preview** | ❌ | ✅ ⭐ |
-| **Batch save** | ❌ | ✅ ⭐ |
-| **Discard option** | ❌ | ✅ ⭐ |
-| **Visual feedback** | Basic | ✅ Enhanced |
-| **Current value display** | ❌ | ✅ |
-| **Better navigation** | ❌ | ✅ |
+### Configuration File: `config.json`
 
-⭐ = Directly addresses your feedback
+```json
+{
+  "version": "1.0.0",
+  "workspace": {
+    "windows": "%USERPROFILE%\\Documents\\wsb-files",
+    "linux": "~/.local/share/sandman",
+    "macos": "~/Library/Application Support/Sandman"
+  },
+  "git": {
+    "includeCoAuthoredBy": false,
+    "autoCommit": false,
+    "commitTemplate": "feat: ${description}"
+  },
+  "editor": {
+    "windows": "notepad.exe",
+    "linux": "nano",
+    "macos": "nano"
+  },
+  "sandbox": {
+    "defaultMemoryMB": 4096,
+    "defaultNetworking": "Default",
+    "autoBackup": true
+  },
+  "multiAgent": {
+    "enabled": true,
+    "cleanupTempFiles": true,
+    "keepResolutionLog": true,
+    "priorityFormula": {
+      "urgency": 10,
+      "impact": 5,
+      "complexity": -2,
+      "enables": 3
+    }
+  }
+}
+```
+
+### Customizing Paths
+
+Edit `.cmd` or `.sh` files to match your local system:
+
+**Windows** (`setup.cmd`):
+```batch
+@echo off
+REM Edit these paths for your system
+SET SANDMAN_HOME=C:\Tools\Sandman
+SET WORKSPACE=%USERPROFILE%\Documents\wsb-files
+
+REM Add pre-installed tools here
+choco install -y git nodejs python
+```
+
+**Linux/macOS** (`setup.sh`):
+```bash
+#!/bin/bash
+# Edit these paths for your system
+export SANDMAN_HOME="$HOME/.local/share/sandman"
+export WORKSPACE="$HOME/.local/share/sandman/workspaces"
+
+# Add pre-installed tools here
+sudo apt-get install -y git nodejs python3 docker.io
+```
 
 ---
 
-## 💡 Usage Examples
+## File Structure
 
-### Quick Configuration Change
+```
+Sandman/
+├── README.md                          # This file
+├── config.json                        # Configuration file
+├── sandman.ps1                        # Main PowerShell script
+├── sandman.sh                         # Main Bash script
+├── multi-agent-orchestrator.ps1       # Multi-agent system (Windows)
+├── multi-agent-orchestrator.sh        # Multi-agent system (Linux/macOS)
+├── setup.cmd                          # Windows installer
+├── setup.sh                           # Linux/macOS installer
+│
+├── agents/                            # Multi-agent system modules
+│   ├── scout.ps1 / scout.sh          # Issue detection
+│   ├── architect.ps1 / architect.sh  # Dependency mapping
+│   ├── strategist.ps1 / strategist.sh # Prioritization
+│   ├── executor.ps1 / executor.sh    # Implementation
+│   ├── validator.ps1 / validator.sh  # Testing & validation
+│   ├── documenter.ps1 / documenter.sh # Pattern recording
+│   ├── auditor.ps1 / auditor.sh      # Final verification
+│   ├── regression.ps1 / regression.sh # Regression testing
+│   └── certifier.ps1 / certifier.sh  # Cleanup & certification
+│
+├── templates/                         # Sandbox templates
+│   ├── full-sandbox.wsb              # Full-featured template
+│   ├── secure-sandbox.wsb            # Security-focused template
+│   └── minimal-sandbox.wsb           # Minimal template
+│
+├── docs/                             # Documentation
+│   ├── MULTI_AGENT_GUIDE.md         # Multi-agent system guide
+│   ├── QUICK_REFERENCE.md           # Quick reference
+│   ├── CROSS_PLATFORM.md            # Cross-platform notes
+│   └── CONTRIBUTING.md              # Contribution guidelines
+│
+└── Win-Sand-Box/                     # Legacy Windows-specific files
+    ├── wsb-manager-fixed.ps1
+    ├── wsb-manager-enhanced.ps1
+    └── [documentation files]
+```
+
+---
+
+## The Discipline of Command
+
+### The Three Laws
+
+1. **Clarity before Velocity**
+   - Sharpen your command until confusion is impossible
+
+2. **Structure before Dialogue**
+   - Every great prompt: Context → Goal → Process → Output → Tone → Constraints
+
+3. **Reflection before Closure**
+   - Ask: "What pattern did this reveal?" Insight is recursive
+
+### Disciplines of Directed Dialogue
+
+- Speak with purpose, not confusion
+- Establish authority early
+- Demand reflection, not regurgitation
+
+*These aren't prompts. They're protocols — a language of command for cognition.*
+
+---
+
+## Usage Examples
+
+### Basic Usage
+
 ```powershell
-# Launch script
-.\wsb-manager-enhanced.ps1
+# Windows - Create a new sandbox
+.\sandman.ps1
+# Press [1] Create new .wsb
+# Follow the prompts
 
+# Linux/macOS - List all sandboxes
+./sandman.sh
+# Press [2] List sandbox configurations
+```
+
+### Multi-Agent Workflow
+
+```bash
+# Run the complete multi-agent system
+./multi-agent-orchestrator.sh
+
+# The system will:
+# 1. Scout for issues → issues-inventory.json
+# 2. Map dependencies → dependency-graph.json
+# 3. Create execution plan → execution-plan.json
+# 4. Execute batch by batch
+# 5. Validate each change
+# 6. Document patterns → pattern-library.md
+# 7. Audit final state
+# 8. Generate project-resolution-log.md
+```
+
+### Advanced Configuration
+
+```powershell
+# Modify sandbox with multiple changes
+.\sandman.ps1
 # Press [5] Modify
-# Select file #2
-# Change Memory to 8192 ✓
-# Toggle ProtectedClient ✓
-# Add mapped folder ✓
+# Select sandbox
+# Make multiple changes
 # Press [11] SAVE & EXIT
 ```
 
-**Result:** 3 changes in one session! 🎉
+---
 
-### Fix a Mistake
+## Quality Gates
+
+Every change must pass these gates:
+
+1. **Functionality** ✓ - Works as intended
+2. **No Regressions** ✓ - Existing features still work
+3. **Design Match** ✓ - Follows design specifications
+4. **Responsive** ✓ - Works across devices/platforms
+5. **Performance** ✓ - Meets performance benchmarks
+
+---
+
+## Final Principles
+
+- **Measure Twice, Cut Once**: Thorough planning prevents rework
+- **One Thing at a Time**: Complete batches fully before advancing
+- **Learn and Apply**: Capture patterns, accelerate future work
+- **Clean as You Go**: Leave no mess behind
+- **Document Concisely**: Minimal but sufficient for continuation
+- **Quality Over Speed**: But achieve both through systematic approach
+
+---
+
+## Installation
+
+### Windows
+
 ```powershell
-# During modification session
-# Made several changes
-# Realize you messed up
+# Clone or download the repository
+git clone https://github.com/yourusername/sandman.git
+cd sandman
 
-# Press [12] DISCARD & EXIT
-# Confirm: y
-# All changes discarded, file unchanged
-# Start over fresh!
+# Run setup (installs dependencies, creates workspace)
+.\setup.cmd
+
+# Start using Sandman
+.\sandman.ps1
+```
+
+### Linux
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/sandman.git
+cd sandman
+
+# Run setup
+chmod +x setup.sh
+./setup.sh
+
+# Start using Sandman
+./sandman.sh
+```
+
+### macOS
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/sandman.git
+cd sandman
+
+# Run setup
+chmod +x setup.sh
+./setup.sh
+
+# Start using Sandman
+./sandman.sh
 ```
 
 ---
 
-## 🎓 Learning Path
+## Roadmap
 
-### For Quick Start
-1. Read: **QUICK_REFERENCE.md** (5 minutes)
-2. Run: **wsb-manager-enhanced.ps1**
-3. Try: Option [5] Modify with multiple changes
+### Current (v1.0)
 
-### For Understanding Changes
-1. Read: **BEFORE_AFTER_COMPARISON.md** (10 minutes)
-2. Read: **ENHANCEMENT_CHANGELOG.md** (10 minutes)
+- [x] Windows Sandbox manager
+- [x] Multi-modification mode
+- [x] Live configuration preview
+- [x] Validation system
+- [x] Comprehensive documentation
 
-### For Technical Details
-1. Read: **FIXES_APPLIED.md** (5 minutes)
-2. Review: Script source code
+### Next (v2.0)
 
----
+- [ ] Cross-platform shell scripts
+- [ ] Multi-agent orchestrator
+- [ ] Pattern learning system
+- [ ] Automated dependency mapping
+- [ ] Configuration management
 
-## 🏆 Key Improvements Highlights
+### Future (v3.0)
 
-### 1. **Multi-Change Mode** 🔄
-The #1 feature you requested!
-- Make unlimited changes before saving
-- Stay in context, no repetitive navigation
-- 73% faster for multiple changes
-
-### 2. **Live Preview** 👁️
-See your configuration update in real-time:
-```
-=== Current Configuration ===
-Memory: 8192 MB  ← Just changed!
-ProtectedClient: Enable  ← Just changed!
-==============================
-```
-
-### 3. **Safety Features** 🛡️
-- Discard option before saving
-- Confirmation before discarding
-- Unsaved changes indicator
-- Automatic backups
-
-### 4. **Better UX** ✨
-- Clear visual feedback
-- Current values in prompts
-- Color-coded messages
-- Organized menu structure
+- [ ] Template marketplace
+- [ ] Cloud sandbox support
+- [ ] Team collaboration features
+- [ ] CI/CD integration
+- [ ] Advanced security scanning
 
 ---
 
-## 🔧 Configuration Tips
+## Contributing
 
-### Secure Development
-```
-Memory: 4096 MB
-Networking: Disable
-Mapped Folder: C:\dev (ReadOnly: false)
-```
+We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
 
-### Safe Testing
-```
-Memory: 2048 MB
-Networking: Default
-ClipboardRedirection: Disable
-ProtectedClient: Enable
-```
+### Development Workflow
 
-### Minimal Sandbox
-```
-Memory: 2048 MB
-Networking: Default
-(No mapped folders)
-```
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run the multi-agent system to validate
+5. Submit a pull request
 
 ---
 
-## 📞 Support
+## Support
 
-### Common Issues
+### Documentation
 
-**Script won't run?**
-→ Use bypass: `PowerShell -ExecutionPolicy Bypass -File .\script.ps1`
-
-**Parse errors?**
-→ Make sure you're using the FIXED or ENHANCED version
-
-**Backup warnings?**
-→ Non-critical, script continues working
-
-**Validation errors?**
-→ Use option [4] to see specific issues
+- [Multi-Agent Guide](docs/MULTI_AGENT_GUIDE.md) - Deep dive into the multi-agent system
+- [Quick Reference](docs/QUICK_REFERENCE.md) - Common commands and options
+- [Cross-Platform Notes](docs/CROSS_PLATFORM.md) - Platform-specific information
 
 ### Getting Help
 
-1. Check **QUICK_REFERENCE.md** troubleshooting section
-2. Review error messages (now color-coded!)
-3. Use validation option [4] to diagnose issues
+1. Check the documentation in `docs/`
+2. Review error messages and validation output
+3. Run the validator: Option [4]
+4. Open an issue on GitHub
 
 ---
 
-## 🎯 Which File Should I Use?
+## License
 
-### Use **wsb-manager-enhanced.ps1** if:
-- ✅ You want the multi-change mode (faster workflow)
-- ✅ You want to see live previews
-- ✅ You want batch save functionality
-- ✅ You want the best experience
-- ✅ **Recommended for everyone!**
-
-### Use **wsb-manager-fixed.ps1** if:
-- You only need the bug fixes
-- You prefer the original single-change workflow
-- You want minimal changes from original
-
-**Most users should use Enhanced version! 🎉**
+MIT License - See LICENSE file for details
 
 ---
 
-## 🎁 Bonus Features
+## Credits
 
-You asked for better feature selection, but you also got:
+Built with the multi-agent code perfection framework:
+- **Design Team** (cot): Scout, Architect, Strategist
+- **Implementation Team** (cot+): Executor, Validator, Documenter
+- **Audit Team** (cot++): Auditor, Regression, Certifier
 
-1. ✨ Visual feedback with checkmarks
-2. 🎨 Color-coded messages (Green/Yellow/Red)
-3. 🐛 Better error handling
-4. ⚠️ Unsaved changes warnings
-5. 📊 Configuration summary display
-6. ℹ️ Current value prompts
-7. 📝 Notepad integration with reload
-8. ⏸️ Smart pauses for readability
+*Measure twice, cut once.*
 
 ---
 
-## 📈 Statistics
+## Version History
 
-**Code Improvements:**
-- Functions added: 1 (Show-CurrentConfig)
-- Functions enhanced: 2 (Action-Modify, Save-WsbXml)
-- Bugs fixed: 3 (2 Unicode dashes, 1 extra parenthesis)
-- New features: 7+ (multi-change, preview, discard, etc.)
+### v1.0.0 (Current)
+- Initial release with Windows Sandbox support
+- Multi-modification mode
+- Enhanced validation system
+- Comprehensive documentation
 
-**User Experience:**
-- Navigation clicks reduced: ~60%
-- Time for 5 changes: 75s → 20s (73% faster)
-- Error recovery: None → Full discard support
-- Visual feedback: Basic → Enhanced
-
----
-
-## 🗺️ What's Next?
-
-### Using the Enhanced Version
-
-1. **Day 1**: Get familiar with basic operations
-2. **Day 2**: Try multi-change mode
-3. **Day 3**: Master the workflow
-4. **Day 4+**: Enjoy the productivity boost!
-
-### Potential Future Enhancements
-
-Ideas for v4 (if desired):
-- Undo/redo functionality
-- Configuration templates
-- Bulk file operations
-- Keyboard shortcuts
-- Quick-edit mode
-- Diff viewer
+### v2.0.0 (In Progress)
+- Cross-platform support
+- Multi-agent orchestrator
+- Configuration management
+- Automated installation
 
 ---
 
-## 🙏 Summary
-
-You reported: 
-> "after each change, it takes me back to the previous screen"
-
-We delivered:
-- ✅ Fixed all syntax errors
-- ✅ Multi-modification mode
-- ✅ Live configuration preview
-- ✅ Batch save functionality
-- ✅ Much better UX overall
-- ✅ Comprehensive documentation
-
-**Enjoy your enhanced Windows Sandbox Manager! 🎉**
-
----
-
-## 📋 File Checklist
-
-- [x] wsb-manager-fixed.ps1 (bugs fixed)
-- [x] wsb-manager-enhanced.ps1 (enhanced UX)
-- [x] QUICK_REFERENCE.md (usage guide)
-- [x] ENHANCEMENT_CHANGELOG.md (what's new)
-- [x] BEFORE_AFTER_COMPARISON.md (comparison)
-- [x] FIXES_APPLIED.md (bug fixes)
-- [x] README.md (this file)
-
-**All files ready to use! 🚀**
+**Made with precision and care by the Sandman team.**
