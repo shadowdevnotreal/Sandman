@@ -10,16 +10,71 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](https://github.com/shadowdevnotreal/Sandman)
-[![Version](https://img.shields.io/badge/Version-1.1.0-green)](https://github.com/shadowdevnotreal/Sandman/releases)
+[![Version](https://img.shields.io/badge/Version-1.2.0-brightgreen)](https://github.com/shadowdevnotreal/Sandman/releases)
 [![Made with PowerShell](https://img.shields.io/badge/Made%20with-PowerShell-blue)](https://github.com/PowerShell/PowerShell)
 
-### 🎉 **NEW in v1.1.0**: Web UI | PowerShell Module | 11 Templates | Custom Themes | Import/Export
+### 🎉 **NEW in v1.2.0**: Usage Analytics | Version Control | Quick Launch Profiles | Desktop Notifications
 
 </div>
 
 ---
 
-## 🆕 What's New in v1.1.0
+## 🆕 What's New in v1.2.0
+
+<table>
+<tr>
+<td width="50%">
+
+### 📊 Usage Analytics
+Track sandbox launches, usage patterns, and statistics. Generate reports, export to CSV, and identify your most-used configurations!
+
+**Key Features:**
+- Launch frequency tracking
+- Runtime statistics
+- Usage trends by date/hour
+- Top configurations & templates
+- CSV export for analysis
+
+### 🔄 Configuration Version Control
+Full Git integration for your configurations! Track changes, view history, and revert to any previous version.
+
+**Key Features:**
+- Automatic commit on changes
+- Complete commit history
+- Diff viewing
+- Revert to any commit
+- Tag important versions
+
+</td>
+<td width="50%">
+
+### 🎯 Quick Launch Profiles
+One-click preset environments for your daily workflows. Create desktop shortcuts and set default profiles.
+
+**Key Features:**
+- One-command launching
+- Desktop shortcut creation
+- Tag-based organization
+- Usage statistics
+- Import/export profiles
+
+### 🔔 Desktop Notifications
+Stay informed with Windows toast notifications for all sandbox events. Never miss a completion or error!
+
+**Key Features:**
+- Launch notifications
+- Error alerts
+- Completion notices
+- Custom notifications
+- Configurable sounds
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎉 What's in v1.1.0
 
 <table>
 <tr>
@@ -71,12 +126,16 @@ Sandman is your friendly neighborhood Windows Sandbox manager that makes creatin
 | 🔄 **Multi-Change Mode** | Tweak multiple settings before saving |
 | 👀 **Live Preview** | See exactly what you're creating in real-time |
 | ✅ **Smart Validation** | Catches errors before you launch |
-| 📦 **10+ Templates** | Pre-built configs for every scenario |
+| 📦 **11 Templates** | Pre-built configs for every scenario |
 | 🚀 **One-Click Setup** | Get running in under 2 minutes |
 | 🛠️ **Auto Feature Enable** | Automatically sets up Windows Sandbox for you |
 | 🔌 **PowerShell Module** | Use as a module in your own scripts |
 | 📤 **Import/Export** | Share and backup configurations easily |
 | 🎨 **Custom Themes** | 5 terminal themes to match your style |
+| 📊 **Usage Analytics** | Track launches, patterns, and generate reports |
+| 🔄 **Version Control** | Git integration with full history and revert |
+| 🎯 **Quick Launch Profiles** | One-click presets with desktop shortcuts |
+| 🔔 **Desktop Notifications** | Toast notifications for all sandbox events |
 
 ---
 
@@ -310,7 +369,7 @@ Sandman/
 ├── 🚀 sandman.ps1                  ← Main launcher
 ├── 📦 setup.cmd                    ← Windows setup
 │
-├── 🌐 web/                         ← Web UI (NEW!)
+├── 🌐 web/                         ← Web UI (v1.1.0)
 │   ├── app.py                     ← Flask server
 │   ├── templates/                 ← HTML templates
 │   │   └── index.html
@@ -324,12 +383,12 @@ Sandman/
 │   ├── sandman.sh                 ← Bash version (WSL/Git Bash)
 │   └── enable-sandbox-features.ps1 ← Feature enabler
 │
-├── 🔌 modules/                     ← PowerShell Module (NEW!)
+├── 🔌 modules/                     ← PowerShell Module (v1.1.0)
 │   └── Sandman/
 │       ├── Sandman.psm1           ← Module code
 │       └── Sandman.psd1           ← Module manifest
 │
-├── 📋 templates/                   ← 11 Templates (EXPANDED!)
+├── 📋 templates/                   ← 11 Templates (v1.1.0)
 │   ├── minimal-sandbox.wsb
 │   ├── secure-sandbox.wsb
 │   ├── development-sandbox.wsb
@@ -342,7 +401,7 @@ Sandman/
 │   ├── python-data-science-sandbox.wsb
 │   └── software-testing-sandbox.wsb
 │
-├── 🎨 themes/                      ← Terminal Themes (NEW!)
+├── 🎨 themes/                      ← Terminal Themes (v1.1.0)
 │   ├── default.json
 │   ├── cyberpunk.json
 │   ├── matrix.json
@@ -350,8 +409,26 @@ Sandman/
 │   ├── ocean.json
 │   └── README.md
 │
+├── 📊 analytics/                   ← Usage Analytics (v1.2.0 NEW!)
+│   ├── analytics.py               ← Analytics tracking
+│   └── README.md                  ← Analytics guide
+│
+├── 🔄 versioncontrol/              ← Config Version Control (v1.2.0 NEW!)
+│   ├── config_git.py              ← Git integration
+│   └── README.md                  ← Version control guide
+│
+├── 🎯 profiles/                    ← Quick Launch Profiles (v1.2.0 NEW!)
+│   ├── profiles.py                ← Profile manager
+│   └── README.md                  ← Profiles guide
+│
+├── 🔔 notifications/               ← Desktop Notifications (v1.2.0 NEW!)
+│   ├── notifier.py                ← Notification system
+│   └── README.md                  ← Notifications guide
+│
 └── 📚 docs/
     ├── QUICK_START.md             ← 5-minute guide
+    ├── WEB_UI.md                  ← Web UI documentation
+    ├── POWERSHELL_MODULE.md       ← PowerShell module guide
     ├── SCRIPT_VERSIONS.md         ← PowerShell vs Python vs Bash
     ├── CONTRIBUTING.md            ← How to contribute
     ├── pattern-library.md         ← Dev patterns
@@ -507,29 +584,38 @@ Every star motivates us to add more features and improve the project!
 
 ## 🗺️ Roadmap
 
-### ✅ Completed (v1.1.0)
+### ✅ Completed (v1.2.0)
 
+**v1.2.0 Features:**
+- ✅ **Usage Analytics** - Track launches, patterns, and generate reports
+- ✅ **Configuration Version Control** - Full Git integration with history
+- ✅ **Quick Launch Profiles** - One-click presets with desktop shortcuts
+- ✅ **Desktop Notifications** - Windows toast notifications for all events
+
+**v1.1.0 Features:**
 - ✅ **Web-based UI** - Beautiful Flask interface
 - ✅ **PowerShell Module** - Professional automation module
 - ✅ **11 Specialized Templates** - Templates for every use case
 - ✅ **Import/Export** - Share and backup configurations
 - ✅ **5 Custom Themes** - Personalize your experience
 
-### 🚀 Coming Soon (v1.2.0)
+### 🚀 Coming Soon (v1.3.0)
 
 - [ ] 🤖 **CI/CD Integration Helpers** - GitHub Actions, Azure DevOps templates
-- [ ] 📊 **Usage Analytics** - Track sandbox usage and statistics
-- [ ] 🔄 **Configuration Version Control** - Git integration for configs
-- [ ] 🎯 **Quick Launch Profiles** - One-click preset environments
-- [ ] 🔔 **Notifications** - Desktop notifications for sandbox events
+- [ ] 🔍 **Advanced Search** - Search configs by content, tags, and attributes
+- [ ] 📸 **Snapshot Management** - Save and restore sandbox states
+- [ ] 🔗 **Configuration Chaining** - Link multiple configs together
+- [ ] 📱 **Mobile-Responsive Web UI** - Better mobile experience
 
 ### 🌟 Future Ideas (v2.0.0+)
 
 - [ ] 🌍 **Multi-Language Support** - UI translations
-- [ ] 📱 **Mobile Management** - Control sandboxes from your phone
+- [ ] 📱 **Mobile App** - Native mobile app for management
 - [ ] 🤝 **Team Workspaces** - Shared configuration repositories
 - [ ] 🔐 **Secrets Management** - Secure credential storage
-- [ ] 📈 **Performance Monitoring** - Resource usage tracking
+- [ ] 📈 **Performance Monitoring** - Real-time resource usage tracking
+- [ ] 🔌 **Plugin System** - Extend Sandman with custom plugins
+- [ ] 🎥 **Session Recording** - Record and replay sandbox sessions
 
 Got ideas? [Share them with us!](https://github.com/shadowdevnotreal/Sandman/discussions)
 
@@ -550,9 +636,15 @@ Need help?
 
 **🟢 Active Development** - Regularly maintained and updated!
 
-### Version 1.1.0 (November 2024) - MAJOR UPDATE 🎉
+### Version 1.2.0 (November 2024) - MAJOR UPDATE 🎉
 
-**What's New:**
+**What's New in v1.2.0:**
+- 📊 Usage Analytics - Track launches and patterns
+- 🔄 Configuration Version Control - Full Git integration
+- 🎯 Quick Launch Profiles - One-click presets
+- 🔔 Desktop Notifications - Windows toast notifications
+
+**v1.1.0 Features:**
 - 🌐 Web-based UI (Flask)
 - 🔌 PowerShell Module (7 cmdlets)
 - 📦 11 Specialized Templates (7 new!)
@@ -567,13 +659,16 @@ Need help?
 - ✅ Automatic configuration backups
 - ✅ Template system
 - ✅ REST API
+- ✅ Git integration
+- ✅ Analytics tracking
 
 **Statistics:**
-- 📁 23 new files
-- 💻 2,724+ lines of code
-- 📚 3 new documentation guides
+- 📁 31+ files added (v1.1.0: 23 files, v1.2.0: 8 files)
+- 💻 5,500+ lines of code
+- 📚 7 new documentation guides
 - 🎯 8 REST API endpoints
 - 🔧 7 PowerShell cmdlets
+- 📊 4 new major features (v1.2.0)
 
 ---
 

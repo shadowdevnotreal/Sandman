@@ -5,6 +5,152 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-11-19
+
+### 🎉 Major Release - Advanced Management Features
+
+This release adds powerful new capabilities for tracking, managing, and organizing your Windows Sandbox configurations!
+
+### Added
+
+#### 📊 Usage Analytics
+Track and analyze your sandbox usage patterns with comprehensive analytics:
+
+- **Launch Tracking**: Automatically track every sandbox launch
+- **Statistics Dashboard**: View total launches, runtime, and averages
+- **Configuration Analytics**: See which configs are used most
+- **Template Analytics**: Track template popularity
+- **Time-Based Analysis**: Usage by date, hour, and time periods
+- **Export Capabilities**: Export data to CSV for external analysis
+- **Summary Reports**: Human-readable usage reports
+
+**Features:**
+- Launch frequency tracking
+- Runtime statistics
+- Usage trends visualization
+- Top configurations and templates
+- Historical data retention (last 1000 launches)
+
+**Files Added:**
+- `analytics/analytics.py` - Analytics tracking system (400+ lines)
+- `analytics/README.md` - Analytics documentation
+
+#### 🔄 Configuration Version Control
+Full Git integration for tracking configuration changes:
+
+- **Git Integration**: Complete Git version control system
+- **Commit History**: Track all changes with timestamps and messages
+- **Revert Capability**: Roll back to any previous version
+- **Diff Viewing**: See what changed between versions
+- **Auto-Commit**: Optionally auto-commit on configuration changes
+- **Tags**: Create milestone tags for important configurations
+- **Export History**: Export configurations from any commit
+
+**Features:**
+- Initialize Git repository in workspace
+- Commit individual or all configurations
+- View commit history
+- Compare versions with diff
+- Revert to previous commits
+- Create and manage tags
+- Auto-commit support
+
+**Files Added:**
+- `versioncontrol/config_git.py` - Git integration system (500+ lines)
+- `versioncontrol/README.md` - Version control documentation
+
+#### 🎯 Quick Launch Profiles
+One-click preset environments for common scenarios:
+
+- **Quick Launch**: Launch sandboxes with a single command
+- **Profile Management**: Create, update, and delete profiles
+- **Desktop Shortcuts**: Create clickable desktop shortcuts
+- **Default Profile**: Set a default for instant launching
+- **Tags**: Organize profiles by category
+- **Usage Tracking**: See which profiles you use most
+- **Import/Export**: Share profiles with your team
+
+**Features:**
+- One-command launching
+- Desktop shortcut creation (.lnk files)
+- Tag-based organization
+- Profile statistics
+- Default profile support
+- Import/export capabilities
+
+**Files Added:**
+- `profiles/profiles.py` - Profile management system (400+ lines)
+- `profiles/README.md` - Profiles documentation
+
+#### 🔔 Desktop Notifications
+Windows toast notifications for sandbox events:
+
+- **Launch Notifications**: Know when sandboxes start
+- **Error Notifications**: Get alerted to problems immediately
+- **Completion Notifications**: Track when operations finish
+- **Warning Notifications**: Stay informed about issues
+- **Custom Notifications**: Send your own notifications
+- **Configurable**: Enable/disable sounds and notification types
+- **History Tracking**: See all past notifications
+
+**Features:**
+- Windows 10/11 toast notifications
+- PowerShell-based notification system
+- Configurable sound settings
+- Notification type filtering
+- History tracking (last 1000 notifications)
+- Notification statistics
+
+**Files Added:**
+- `notifications/notifier.py` - Notification system (500+ lines)
+- `notifications/README.md` - Notifications documentation
+
+### Changed
+
+- README updated to highlight v1.2.0 features
+- Version badge updated to 1.2.0
+- Project structure expanded to show new directories
+- Feature table expanded with 4 new features
+- Roadmap reorganized to show v1.2.0 as completed
+- Project Status section updated with v1.2.0 statistics
+
+### Statistics
+
+- **Files Added:** 8
+- **Lines of Code:** 2,800+
+  - Python: ~2,200 lines
+  - Documentation: ~600 lines
+- **New Features:** 4 major features
+- **Documentation Guides:** 4 new comprehensive guides
+
+### Technical Details
+
+**Usage Analytics:**
+- Tracks launch events with timestamps
+- Stores data in JSON format
+- Generates CSV exports for analysis
+- Maintains configuration and template statistics
+
+**Version Control:**
+- Uses Git for version tracking
+- Supports all standard Git operations
+- Auto-creates .gitignore for workspace
+- Integrates with existing Git workflows
+
+**Quick Launch Profiles:**
+- JSON-based profile storage
+- Windows shortcut creation via PowerShell
+- Tag-based organization system
+- Usage statistics tracking
+
+**Desktop Notifications:**
+- Windows.UI.Notifications API
+- PowerShell toast notification implementation
+- Fallback notification methods
+- Configurable notification preferences
+
+---
+
 ## [1.1.0] - 2024-11-19
 
 ### 🎉 Major Release - Comprehensive Feature Expansion
