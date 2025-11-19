@@ -1,6 +1,8 @@
 # Sandman Script Versions
 
-Sandman is available in three versions for Windows:
+**Important:** Sandman is **Windows-only** and uses Windows Sandbox. All three script versions run ON Windows - they are just different ways to interact with the same Windows Sandbox feature.
+
+Sandman is available in three script versions:
 
 ## 1. PowerShell Version (Recommended)
 
@@ -41,13 +43,13 @@ Unblock-File -Path .\sandman.ps1
 
 ## 2. Python Version
 
-**File**: `sandman.py`
+**File**: `scripts/sandman.py`
 
 ### Features
 - Cross-version compatibility (Python 3.6+)
 - Simple, readable code
 - Easy to extend and customize
-- Platform-agnostic codebase
+- Works on Windows (same as PowerShell version)
 
 ### Requirements
 - Windows 10 Pro/Enterprise or Windows 11
@@ -66,11 +68,11 @@ choco install python
 ### Usage
 ```bash
 # Run directly
-python sandman.py
+python scripts\sandman.py
 
-# Or make it executable (Git Bash/WSL)
-chmod +x sandman.py
-./sandman.py
+# Or from root directory (Git Bash/WSL)
+cd Sandman
+python scripts/sandman.py
 ```
 
 ### Advantages
@@ -100,13 +102,13 @@ manager.save_wsb(Path("auto-sandbox.wsb"), xml)
 
 ## 3. Bash Version (WSL/Git Bash)
 
-**File**: `sandman.sh`
+**File**: `scripts/sandman.sh`
 
 ### Features
-- Works in Windows Subsystem for Linux (WSL)
-- Works in Git Bash / MSYS2 / Cygwin
-- Unix-style scripting on Windows
-- Familiar for Linux users
+- Works in Windows Subsystem for Linux (WSL) **on Windows**
+- Works in Git Bash / MSYS2 / Cygwin **on Windows**
+- Unix-style scripting **on Windows**
+- Familiar for Linux users transitioning to Windows
 
 ### Requirements
 - Windows 10 Pro/Enterprise or Windows 11
@@ -125,13 +127,13 @@ manager.save_wsb(Path("auto-sandbox.wsb"), xml)
 ### Usage
 ```bash
 # Make executable
-chmod +x sandman.sh
+chmod +x scripts/sandman.sh
 
 # Run
-./sandman.sh
+./scripts/sandman.sh
 
 # Or with bash explicitly
-bash sandman.sh
+bash scripts/sandman.sh
 ```
 
 ### Advantages
@@ -143,7 +145,9 @@ bash sandman.sh
 ### Notes for WSL Users
 - .wsb files are created in Windows filesystem
 - Default workspace: `/mnt/c/Users/YourName/Documents/wsb-files`
-- Launches Windows Sandbox (not WSL container)
+- **Launches Windows Sandbox (not a Linux container!)**
+- This script just provides a bash interface to Windows Sandbox
+- Still requires Windows 10/11 Pro/Enterprise with Windows Sandbox enabled
 
 ---
 
@@ -218,16 +222,16 @@ bash sandman.sh
 python --version
 
 # Run Sandman
-python sandman.py
+python scripts\sandman.py
 ```
 
 ### Bash (WSL/Git Bash users)
 ```bash
 # Make executable
-chmod +x sandman.sh
+chmod +x scripts/sandman.sh
 
 # Run Sandman
-./sandman.sh
+./scripts/sandman.sh
 ```
 
 ---
@@ -284,7 +288,7 @@ manager.launch_sandbox(Path("test.wsb"))
 ### Bash
 ```bash
 # Script automation
-./sandman.sh <<EOF
+./scripts/sandman.sh <<EOF
 1
 my-sandbox
 4096
@@ -307,8 +311,9 @@ EOF
 - **Permission Error**: Run as Administrator if needed
 
 ### Bash
-- **Command Not Found**: Use `bash sandman.sh` instead of `./sandman.sh`
+- **Command Not Found**: Use `bash scripts/sandman.sh` instead of `./scripts/sandman.sh`
 - **WSL Path Issues**: Workspace is `/mnt/c/Users/...` in WSL
+- **"Windows Sandbox not found"**: You're on Windows, right? Check Windows edition and feature enablement
 
 ---
 
@@ -320,4 +325,6 @@ EOF
 
 ---
 
-**All three versions manage the same .wsb files!** Choose based on your preference and workflow.
+**All three versions manage the same .wsb files and launch the same Windows Sandbox!**
+
+They are just different interfaces (PowerShell, Python, or Bash) for the same Windows-only tool. Choose based on your preference and workflow, but all require Windows 10/11 Pro/Enterprise with Windows Sandbox enabled.
