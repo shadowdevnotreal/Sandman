@@ -53,11 +53,13 @@ build/
 *.exe
 *.msi
 
-# Multi-agent temp files (cleanup after use)
-issues-inventory.json
-dependency-graph.json
-execution-plan.json
-pattern-library.md
+# Multi-agent temp files (cleanup after use - root directory only)
+/issues-inventory.json
+/dependency-graph.json
+/execution-plan.json
+/pattern-library.md
+/project-resolution-log.md
 
-# Keep project-resolution-log.md if it exists
-!project-resolution-log.md
+# Keep permanent documentation in docs/ folder
+!docs/pattern-library.md
+!docs/project-resolution-log.md
