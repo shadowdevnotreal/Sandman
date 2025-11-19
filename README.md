@@ -1,167 +1,134 @@
-# Sandman - Multi-Agent Sandbox Management System
+# Sandman - Cross-Platform Sandbox Manager
 
-> **Measure twice, cut once** - A systematic approach to sandbox configuration perfection
+> Simple, powerful, cross-platform sandbox configuration and management
 
-## Overview
-
-Sandman is an advanced, cross-platform sandbox management system powered by a multi-agent architecture (cot → cot+ → cot++). It combines the power of Windows Sandbox configuration with a systematic code quality framework that ensures precision, reliability, and continuous improvement.
-
----
-
-## Multi-Agent Architecture
-
-### Philosophy: Measure Twice, Cut Once
-
-The system employs three sequential teams that transform chaos into systematic excellence:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│  cot (Design)  →  cot+ (Implementation)  →  cot++ (Audit)  │
-└─────────────────────────────────────────────────────────────┘
-     Analysis           Execution              Verification
-```
-
-### The Three Phases
-
-#### Phase 1: cot (Design Team)
-
-**Agents:**
-- **Scout**: Detects all issues across the codebase
-  - Output: `issues-inventory.json` (P0/P1/P2/P3 priority)
-  - Identifies bugs, inefficiencies, security concerns, and design flaws
-
-- **Architect**: Maps dependencies and execution order
-  - Output: `dependency-graph.json`
-  - Prevents conflicts, ensures logical flow
-
-- **Strategist**: Prioritizes and batches work
-  - Output: `execution-plan.json`
-  - Groups by feature/page for efficient execution
-  - Priority formula: `(Urgency×10) + (Impact×5) - (Complexity×2) + (Enables×3)`
-
-**Handoff**: Analysis complete, plan approved → cot+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platform: Windows | Linux | macOS](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)](https://github.com/shadowdevnotreal/Sandman)
 
 ---
 
-#### Phase 2: cot+ (Implementation Team)
+## What is Sandman?
 
-**Agents:**
-- **Executor**: Implements one batch at a time
-  - Completes entire batch before moving to next
-  - Applies learned patterns from previous batches
+Sandman is a comprehensive sandbox management tool that makes it easy to create, configure, and launch isolated environments across Windows, Linux, and macOS. Whether you're testing software, running untrusted code, or creating development environments, Sandman provides a simple interface with powerful features.
 
-- **Validator**: Tests immediately after each change
-  - Blocks progression if any gate fails
-  - Gates: Functionality ✓ No regressions ✓ Design match ✓ Responsive ✓ Performance ✓
+### Key Features
 
-- **Documenter**: Records patterns to `pattern-library.md`
-  - Captures successful solutions
-  - Accelerates future batches through pattern reuse
-
-**Handoff**: All batches complete, tests passing → cot++
-
----
-
-#### Phase 3: cot++ (Audit Team)
-
-**Agents:**
-- **Auditor**: Verifies all issues resolved
-  - Cross-references against original `issues-inventory.json`
-  - Ensures no new critical issues introduced
-
-- **Regression**: Tests untouched areas
-  - Full test suite execution
-  - Visual diff comparison
-
-- **Certifier**: Final approval and cleanup
-  - Deletes temporary files
-  - Generates `project-resolution-log.md`
-  - Issues APPROVE or BLOCK decision
-
-**Output**: Only `project-resolution-log.md` remains
-
----
-
-## Incremental Logic Chain
-
-```
-Scout → Architect → Strategist → Executor → Validator → Documenter
-  ↓        ↓           ↓            ↓          ↓           ↓
-Plan   Structure   Prioritize   Implement   Test    Learn & Apply
-  ↓                                                        ↓
-(cot) ─────────────────────────────────────────────────→ (cot+) → (cot++)
-                                                           ↓
-                                            Patterns feed back to next cycle
-```
-
-**Key Insight**: The Documenter's patterns feed into the next Strategist cycle, creating a learning loop that accelerates work and reduces rework.
-
----
-
-## Platform Support
-
-Sandman works on **all major platforms**:
-
-- **Windows**: PowerShell scripts + Windows Sandbox (.wsb)
-- **Linux**: Bash scripts + systemd-nspawn / Docker
-- **macOS**: Bash scripts + Docker / VM solutions
+- **Cross-Platform Support** - Works on Windows, Linux, and macOS
+- **Interactive Menus** - Easy-to-use terminal interface
+- **Multi-Modification Mode** - Make multiple changes before saving
+- **Live Preview** - See your configuration in real-time
+- **Validation** - Pre-flight checks before launching
+- **Template System** - Quick-start with pre-configured templates
+- **Automated Setup** - One-command installation
 
 ---
 
 ## Quick Start
 
-### Windows (PowerShell)
+### Windows
 
 ```powershell
-# Run the enhanced manager
-PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1
+# Run setup
+.\setup.cmd
 
-# Or with multi-agent system
-.\multi-agent-orchestrator.ps1
+# Launch Sandman
+PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1
 ```
 
-### Linux/macOS (Bash)
+### Linux
 
 ```bash
-# Make executable
-chmod +x sandman.sh
+# Run setup
+chmod +x setup.sh && ./setup.sh
 
-# Run the manager
-./sandman.sh
-
-# Or with multi-agent system
-./multi-agent-orchestrator.sh
+# Launch Sandman
+./scripts/sandman.sh
 ```
+
+### macOS
+
+```bash
+# Run setup
+chmod +x setup.sh && ./setup.sh
+
+# Launch Sandman
+./scripts/sandman.sh
+```
+
+---
+
+## Platform Support
+
+| Platform | Sandbox Backend | Config Format | Status |
+|----------|----------------|---------------|--------|
+| **Windows** | Windows Sandbox | `.wsb` (XML) | ✅ Full Support |
+| **Linux** | Docker / systemd-nspawn | `.sandbox` (INI) | ✅ Full Support |
+| **macOS** | Docker | `.sandbox` (INI) | ✅ Full Support |
+
+See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specific information.
 
 ---
 
 ## Features
 
-### Core Capabilities
+### Core Functionality
 
-- **Create** sandbox configurations with guided wizards
-- **List** all sandbox configurations with metadata
-- **Edit** configurations in your preferred editor
-- **Validate** configurations before deployment
-- **Modify** configurations with interactive menus
-- **Launch** sandboxes with pre-flight validation
-- **Multi-change mode** for batch modifications
+- **Create** - Guided wizard for new sandbox configurations
+- **List** - View all your sandbox configurations
+- **Edit** - Open configurations in your preferred editor
+- **Validate** - Check configurations before launching
+- **Modify** - Interactive menu to change settings
+- **Launch** - Start your sandbox with validation
 
-### Multi-Agent Features
+### Advanced Features
 
-- **Automated issue detection** across entire project
-- **Dependency mapping** to prevent conflicts
-- **Smart prioritization** based on impact and urgency
-- **Pattern learning** that accelerates future work
-- **Comprehensive validation** at every step
-- **Regression testing** to ensure quality
-- **Audit trail** in `project-resolution-log.md`
+- **Multi-Change Mode** - Make multiple modifications in one session
+- **Live Configuration Preview** - See changes as you make them
+- **Automatic Backups** - Never lose your configurations
+- **Template Library** - Pre-configured setups for common use cases
+- **Path Validation** - Ensures shared folders exist
+- **Memory Limits** - Configurable resource allocation
+
+---
+
+## Usage Examples
+
+### Create a New Sandbox
+
+```bash
+./sandman.sh
+# Press [1] Create new configuration
+# Enter name: my-sandbox
+# Enter memory (MB): 4096
+# Enable networking? y
+# Shared folder path: /home/user/share
+```
+
+### Modify Existing Configuration
+
+```bash
+./sandman.ps1
+# Press [5] Modify
+# Select configuration
+# Make changes (memory, networking, folders)
+# Press [11] SAVE & EXIT
+```
+
+### Launch a Sandbox
+
+```bash
+# Linux/macOS
+./scripts/sandman.sh
+# Press [6] Launch sandbox
+# Select configuration
+# Sandbox starts!
+```
 
 ---
 
 ## Configuration
 
-### Configuration File: `config.json`
+Sandman uses `config.json` for cross-platform settings:
 
 ```json
 {
@@ -172,59 +139,100 @@ chmod +x sandman.sh
     "macos": "~/Library/Application Support/Sandman"
   },
   "git": {
-    "includeCoAuthoredBy": false,
-    "autoCommit": false,
-    "commitTemplate": "feat: ${description}"
-  },
-  "editor": {
-    "windows": "notepad.exe",
-    "linux": "nano",
-    "macos": "nano"
+    "includeCoAuthoredBy": false
   },
   "sandbox": {
     "defaultMemoryMB": 4096,
     "defaultNetworking": "Default",
     "autoBackup": true
-  },
-  "multiAgent": {
-    "enabled": true,
-    "cleanupTempFiles": true,
-    "keepResolutionLog": true,
-    "priorityFormula": {
-      "urgency": 10,
-      "impact": 5,
-      "complexity": -2,
-      "enables": 3
-    }
   }
 }
 ```
 
-### Customizing Paths
+### Customization
 
-Edit `.cmd` or `.sh` files to match your local system:
+Edit `config.json` to customize:
+- **Workspace location** - Where configurations are stored
+- **Default memory** - Default RAM allocation
+- **Editor preference** - Your favorite text editor
+- **Auto-backup** - Automatic `.bak` file creation
 
-**Windows** (`setup.cmd`):
-```batch
-@echo off
-REM Edit these paths for your system
-SET SANDMAN_HOME=C:\Tools\Sandman
-SET WORKSPACE=%USERPROFILE%\Documents\wsb-files
+See [Configuration Guide](docs/CROSS_PLATFORM.md#configuration-file-configjson) for all options.
 
-REM Add pre-installed tools here
-choco install -y git nodejs python
+---
+
+## Templates
+
+Sandman includes pre-configured templates:
+
+- **Full-Featured** - 8GB RAM, networking enabled, shared folder
+- **Secure** - 2GB RAM, networking disabled, no shared folders
+- **Minimal** - 2GB RAM, basic configuration
+- **Development** - 8GB RAM, optimized for development work
+
+Export sample templates with option `[5]` or `[6]` in the menu.
+
+---
+
+## Documentation
+
+- **[Quick Start Guide](docs/QUICK_START.md)** - Get up and running fast
+- **[User Guide](docs/USER_GUIDE.md)** - Comprehensive feature documentation
+- **[Cross-Platform Guide](docs/CROSS_PLATFORM.md)** - Platform-specific information
+- **[Script Versions](docs/SCRIPT_VERSIONS.md)** - PowerShell vs Bash versions
+- **[Contributing Guide](docs/CONTRIBUTING.md)** - How to contribute
+
+---
+
+## Requirements
+
+### Windows
+- Windows 10 Pro/Enterprise (build 18305+) or Windows 11
+- Windows Sandbox feature enabled
+- PowerShell 5.1 or later (built-in)
+
+### Linux
+- Any modern distribution
+- Docker or systemd-nspawn
+- Bash shell
+- `jq` (optional, for JSON parsing)
+
+### macOS
+- macOS 10.14 (Mojave) or later
+- Docker Desktop for Mac
+- Bash shell
+- `jq` (optional, via Homebrew)
+
+---
+
+## Installation
+
+### Automated Setup
+
+**Windows:**
+```powershell
+.\setup.cmd
 ```
 
-**Linux/macOS** (`setup.sh`):
+**Linux/macOS:**
 ```bash
-#!/bin/bash
-# Edit these paths for your system
-export SANDMAN_HOME="$HOME/.local/share/sandman"
-export WORKSPACE="$HOME/.local/share/sandman/workspaces"
-
-# Add pre-installed tools here
-sudo apt-get install -y git nodejs python3 docker.io
+chmod +x setup.sh
+./setup.sh
 ```
+
+The setup script will:
+- Create workspace directory
+- Check dependencies
+- Make scripts executable
+- Optionally install recommended packages
+- Create launcher shortcuts
+
+### Manual Setup
+
+1. Clone or download this repository
+2. Create workspace directory manually
+3. Make scripts executable (Linux/macOS)
+4. Install Docker (Linux/macOS) or enable Windows Sandbox (Windows)
 
 ---
 
@@ -232,274 +240,146 @@ sudo apt-get install -y git nodejs python3 docker.io
 
 ```
 Sandman/
-├── README.md                          # This file
-├── config.json                        # Configuration file
-├── sandman.ps1                        # Main PowerShell script
-├── sandman.sh                         # Main Bash script
-├── multi-agent-orchestrator.ps1       # Multi-agent system (Windows)
-├── multi-agent-orchestrator.sh        # Multi-agent system (Linux/macOS)
-├── setup.cmd                          # Windows installer
-├── setup.sh                           # Linux/macOS installer
+├── README.md                  # This file
+├── config.json                # Configuration file
+├── setup.cmd                  # Windows installer
+├── setup.sh                   # Linux/macOS installer
+├── sandman.ps1                # Main Windows launcher
 │
-├── agents/                            # Multi-agent system modules
-│   ├── scout.ps1 / scout.sh          # Issue detection
-│   ├── architect.ps1 / architect.sh  # Dependency mapping
-│   ├── strategist.ps1 / strategist.sh # Prioritization
-│   ├── executor.ps1 / executor.sh    # Implementation
-│   ├── validator.ps1 / validator.sh  # Testing & validation
-│   ├── documenter.ps1 / documenter.sh # Pattern recording
-│   ├── auditor.ps1 / auditor.sh      # Final verification
-│   ├── regression.ps1 / regression.sh # Regression testing
-│   └── certifier.ps1 / certifier.sh  # Cleanup & certification
+├── scripts/                   # Platform-specific scripts
+│   ├── wsb-manager-enhanced.ps1   # Enhanced PowerShell version
+│   ├── wsb-manager-fixed.ps1      # Fixed PowerShell version
+│   ├── sandman.sh                  # Bash version (Linux/macOS)
+│   └── enable-sandbox-features.ps1 # Windows feature enabler
 │
-├── templates/                         # Sandbox templates
-│   ├── full-sandbox.wsb              # Full-featured template
-│   ├── secure-sandbox.wsb            # Security-focused template
-│   └── minimal-sandbox.wsb           # Minimal template
+├── templates/                 # Sandbox templates
+│   ├── Full-Sandbox.wsb      # Full-featured template
+│   ├── minimal-sandbox.wsb   # Minimal template
+│   └── secure-sandbox.wsb    # Security-focused template
 │
-├── docs/                             # Documentation
-│   ├── MULTI_AGENT_GUIDE.md         # Multi-agent system guide
-│   ├── QUICK_REFERENCE.md           # Quick reference
-│   ├── CROSS_PLATFORM.md            # Cross-platform notes
-│   └── CONTRIBUTING.md              # Contribution guidelines
-│
-└── Win-Sand-Box/                     # Legacy Windows-specific files
-    ├── wsb-manager-fixed.ps1
-    ├── wsb-manager-enhanced.ps1
-    └── [documentation files]
+└── docs/                      # Documentation
+    ├── QUICK_START.md        # Quick start guide
+    ├── USER_GUIDE.md         # Comprehensive user guide
+    ├── CROSS_PLATFORM.md     # Cross-platform information
+    ├── SCRIPT_VERSIONS.md    # Version comparison
+    ├── CONTRIBUTING.md       # Contribution guidelines
+    └── legacy/               # Legacy documentation
 ```
 
 ---
 
-## The Discipline of Command
-
-### The Three Laws
-
-1. **Clarity before Velocity**
-   - Sharpen your command until confusion is impossible
-
-2. **Structure before Dialogue**
-   - Every great prompt: Context → Goal → Process → Output → Tone → Constraints
-
-3. **Reflection before Closure**
-   - Ask: "What pattern did this reveal?" Insight is recursive
-
-### Disciplines of Directed Dialogue
-
-- Speak with purpose, not confusion
-- Establish authority early
-- Demand reflection, not regurgitation
-
-*These aren't prompts. They're protocols — a language of command for cognition.*
-
----
-
-## Usage Examples
-
-### Basic Usage
-
-```powershell
-# Windows - Create a new sandbox
-.\sandman.ps1
-# Press [1] Create new .wsb
-# Follow the prompts
-
-# Linux/macOS - List all sandboxes
-./sandman.sh
-# Press [2] List sandbox configurations
-```
-
-### Multi-Agent Workflow
-
-```bash
-# Run the complete multi-agent system
-./multi-agent-orchestrator.sh
-
-# The system will:
-# 1. Scout for issues → issues-inventory.json
-# 2. Map dependencies → dependency-graph.json
-# 3. Create execution plan → execution-plan.json
-# 4. Execute batch by batch
-# 5. Validate each change
-# 6. Document patterns → pattern-library.md
-# 7. Audit final state
-# 8. Generate project-resolution-log.md
-```
-
-### Advanced Configuration
-
-```powershell
-# Modify sandbox with multiple changes
-.\sandman.ps1
-# Press [5] Modify
-# Select sandbox
-# Make multiple changes
-# Press [11] SAVE & EXIT
-```
-
----
-
-## Quality Gates
-
-Every change must pass these gates:
-
-1. **Functionality** ✓ - Works as intended
-2. **No Regressions** ✓ - Existing features still work
-3. **Design Match** ✓ - Follows design specifications
-4. **Responsive** ✓ - Works across devices/platforms
-5. **Performance** ✓ - Meets performance benchmarks
-
----
-
-## Final Principles
-
-- **Measure Twice, Cut Once**: Thorough planning prevents rework
-- **One Thing at a Time**: Complete batches fully before advancing
-- **Learn and Apply**: Capture patterns, accelerate future work
-- **Clean as You Go**: Leave no mess behind
-- **Document Concisely**: Minimal but sufficient for continuation
-- **Quality Over Speed**: But achieve both through systematic approach
-
----
-
-## Installation
+## Troubleshooting
 
 ### Windows
 
-```powershell
-# Clone or download the repository
-git clone https://github.com/yourusername/sandman.git
-cd sandman
+**Problem:** "Windows Sandbox is not available"
+- **Solution:** Enable Windows Sandbox feature (Settings → Apps → Optional Features)
 
-# Run setup (installs dependencies, creates workspace)
-.\setup.cmd
+**Problem:** PowerShell execution policy error
+- **Solution:** `PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1`
 
-# Start using Sandman
-.\sandman.ps1
-```
+### Linux/macOS
 
-### Linux
+**Problem:** "Docker not found"
+- **Solution:** Install Docker: `sudo apt-get install docker.io` (Linux) or Docker Desktop (macOS)
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/sandman.git
-cd sandman
+**Problem:** Permission denied
+- **Solution:** Add user to docker group: `sudo usermod -aG docker $USER`
 
-# Run setup
-chmod +x setup.sh
-./setup.sh
-
-# Start using Sandman
-./sandman.sh
-```
-
-### macOS
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/sandman.git
-cd sandman
-
-# Run setup
-chmod +x setup.sh
-./setup.sh
-
-# Start using Sandman
-./sandman.sh
-```
+See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for more troubleshooting.
 
 ---
 
-## Roadmap
+## Use Cases
 
-### Current (v1.0)
+### Software Testing
+Create isolated environments to test software without affecting your main system.
 
-- [x] Windows Sandbox manager
-- [x] Multi-modification mode
-- [x] Live configuration preview
-- [x] Validation system
-- [x] Comprehensive documentation
+### Security Research
+Run untrusted code safely in a sandboxed environment.
 
-### Next (v2.0)
+### Development
+Set up clean development environments with specific configurations.
 
-- [ ] Cross-platform shell scripts
-- [ ] Multi-agent orchestrator
-- [ ] Pattern learning system
-- [ ] Automated dependency mapping
-- [ ] Configuration management
-
-### Future (v3.0)
-
-- [ ] Template marketplace
-- [ ] Cloud sandbox support
-- [ ] Team collaboration features
-- [ ] CI/CD integration
-- [ ] Advanced security scanning
+### Training & Demos
+Create reproducible environments for training or demonstrations.
 
 ---
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run the multi-agent system to validate
-5. Submit a pull request
+We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for:
+- Code of conduct
+- Development workflow
+- Pull request process
+- Coding standards
 
 ---
 
-## Support
+## Changelog
 
-### Documentation
+### v1.0.0 (Current)
+- Initial release
+- Cross-platform support (Windows, Linux, macOS)
+- Multi-modification mode
+- Live configuration preview
+- Template system
+- Automated setup scripts
 
-- [Multi-Agent Guide](docs/MULTI_AGENT_GUIDE.md) - Deep dive into the multi-agent system
-- [Quick Reference](docs/QUICK_REFERENCE.md) - Common commands and options
-- [Cross-Platform Notes](docs/CROSS_PLATFORM.md) - Platform-specific information
-
-### Getting Help
-
-1. Check the documentation in `docs/`
-2. Review error messages and validation output
-3. Run the validator: Option [4]
-4. Open an issue on GitHub
+See full version history in [legacy documentation](docs/legacy/).
 
 ---
 
 ## License
 
-MIT License - See LICENSE file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Credits
+## Credits & Acknowledgments
 
-Built with the multi-agent code perfection framework:
-- **Design Team** (cot): Scout, Architect, Strategist
-- **Implementation Team** (cot+): Executor, Validator, Documenter
-- **Audit Team** (cot++): Auditor, Regression, Certifier
+**Development Methodology:**
+This project was built using a systematic, quality-focused approach:
+- *Measure twice, cut once* - Thorough planning prevents rework
+- *Clarity before velocity* - Well-defined goals and architecture
+- *Pattern learning* - Continuous improvement through reflection
 
-*Measure twice, cut once.*
-
----
-
-## Version History
-
-### v1.0.0 (Current)
-- Initial release with Windows Sandbox support
-- Multi-modification mode
-- Enhanced validation system
-- Comprehensive documentation
-
-### v2.0.0 (In Progress)
-- Cross-platform support
-- Multi-agent orchestrator
-- Configuration management
-- Automated installation
+**Special Thanks:**
+- Windows Sandbox team at Microsoft
+- Docker community
+- All contributors and users
 
 ---
 
-**Made with precision and care by the Sandman team.**
+## Support
+
+- **Documentation:** Check the `docs/` folder
+- **Issues:** [GitHub Issues](https://github.com/shadowdevnotreal/Sandman/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/shadowdevnotreal/Sandman/discussions)
+
+---
+
+## Project Status
+
+**Active Development** - Regularly maintained and updated.
+
+### Roadmap
+- [ ] Python version for cross-platform scripting
+- [ ] Web-based configuration UI
+- [ ] Cloud sandbox support (AWS, Azure, GCP)
+- [ ] Template marketplace
+- [ ] CI/CD integration
+
+---
+
+**Made with precision and care.**
+
+---
+
+### Quick Links
+
+- [Get Started](docs/QUICK_START.md) - Installation and first steps
+- [User Guide](docs/USER_GUIDE.md) - Complete feature documentation
+- [Platform Guide](docs/CROSS_PLATFORM.md) - Platform-specific setup
+- [Contribute](docs/CONTRIBUTING.md) - Join the development
+- [Legacy Docs](docs/legacy/) - Original Windows-specific documentation

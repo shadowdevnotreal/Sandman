@@ -135,14 +135,15 @@ REM ====================================
 echo.
 echo [*] Setting up Sandman scripts...
 
-if exist "%SANDMAN_HOME%wsb-manager-enhanced.ps1" (
-    copy /Y "%SANDMAN_HOME%wsb-manager-enhanced.ps1" "%SANDMAN_HOME%sandman.ps1" >nul
-    echo [+] Enhanced script copied to sandman.ps1
-) else if exist "%SANDMAN_HOME%wsb-manager-fixed.ps1" (
-    copy /Y "%SANDMAN_HOME%wsb-manager-fixed.ps1" "%SANDMAN_HOME%sandman.ps1" >nul
-    echo [+] Fixed script copied to sandman.ps1
+if exist "%SANDMAN_HOME%scripts\wsb-manager-enhanced.ps1" (
+    echo [+] Enhanced script found in scripts\ folder
+    echo [i] Main launcher (sandman.ps1) will automatically use this script
+) else if exist "%SANDMAN_HOME%scripts\wsb-manager-fixed.ps1" (
+    echo [+] Fixed script found in scripts\ folder
+    echo [i] Main launcher (sandman.ps1) will automatically use this script
 ) else (
-    echo [!] No PowerShell script found. Please ensure scripts are in the correct location.
+    echo [!] Warning: No PowerShell scripts found in scripts\ folder
+    echo [i] Please ensure wsb-manager-enhanced.ps1 is in the scripts\ directory
 )
 
 REM ====================================

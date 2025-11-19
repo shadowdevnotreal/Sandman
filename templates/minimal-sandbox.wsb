@@ -1,0 +1,26 @@
+<Configuration>
+  <!-- Minimal Sandbox Configuration -->
+  <!-- Low resource usage, basic functionality -->
+
+  <!-- Memory: 2GB (minimal but functional) -->
+  <MemoryInMB>2048</MemoryInMB>
+
+  <!-- Networking: Enabled (default) -->
+  <Networking>Default</Networking>
+
+  <!-- Virtual GPU: Enabled for better performance -->
+  <VGpu>Default</VGpu>
+
+  <!-- Audio/Video: Default settings -->
+  <AudioInput>Default</AudioInput>
+  <VideoInput>Default</VideoInput>
+
+  <!-- Basic redirection features -->
+  <PrinterRedirection>Enable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+
+  <!-- Protected client mode disabled for compatibility -->
+  <ProtectedClient>Disable</ProtectedClient>
+
+  <!-- No mapped folders for maximum isolation -->
+</Configuration>

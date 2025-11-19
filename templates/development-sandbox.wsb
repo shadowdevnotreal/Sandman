@@ -1,0 +1,43 @@
+<Configuration>
+  <!-- Development Sandbox Configuration -->
+  <!-- High memory, networking enabled, shared development folders -->
+
+  <!-- Memory: 8GB (comfortable for development) -->
+  <MemoryInMB>8192</MemoryInMB>
+
+  <!-- Networking: Enabled (needed for package downloads) -->
+  <Networking>Default</Networking>
+
+  <!-- Virtual GPU: Enabled for better IDE performance -->
+  <VGpu>Default</VGpu>
+
+  <!-- Audio/Video: Enabled -->
+  <AudioInput>Enable</AudioInput>
+  <VideoInput>Enable</VideoInput>
+
+  <!-- Printer redirection: Enabled -->
+  <PrinterRedirection>Enable</PrinterRedirection>
+
+  <!-- Clipboard redirection: Enabled (useful for copy/paste code) -->
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+
+  <!-- Protected client: Disabled for better compatibility -->
+  <ProtectedClient>Disable</ProtectedClient>
+
+  <!-- Mapped Folders: Edit paths for your development environment -->
+  <MappedFolders>
+    <!-- Example: Your project folder (read/write access) -->
+    <MappedFolder>
+      <HostFolder>C:\dev\projects</HostFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+
+    <!-- Example: Shared tools/libraries (read-only) -->
+    <!--
+    <MappedFolder>
+      <HostFolder>C:\dev\tools</HostFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    -->
+  </MappedFolders>
+</Configuration>
