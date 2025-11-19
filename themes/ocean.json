@@ -1,0 +1,21 @@
+{
+  "name": "Ocean",
+  "description": "Calming ocean blue theme",
+  "colors": {
+    "primary": "#0077be",
+    "success": "#40e0d0",
+    "danger": "#ff6b6b",
+    "warning": "#ffd700",
+    "info": "#87ceeb",
+    "muted": "#708090",
+    "background": "#001f3f",
+    "foreground": "#e0f7fa"
+  },
+  "prompts": {
+    "info": "🌊",
+    "success": "✓",
+    "error": "✗",
+    "warning": "⚠",
+    "question": "❓"
+  }
+}

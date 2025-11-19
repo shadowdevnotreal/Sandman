@@ -1,0 +1,24 @@
+{
+  "name": "Cyberpunk",
+  "description": "Neon-lit cyberpunk theme for the future",
+  "colors": {
+    "primary": "#ff00ff",
+    "success": "#00ff00",
+    "danger": "#ff0055",
+    "warning": "#ffff00",
+    "info": "#00ffff",
+    "muted": "#808080",
+    "background": "#0a0a0a",
+    "foreground": "#00ff00"
+  },
+  "prompts": {
+    "info": "[>]",
+    "success": "[√]",
+    "error": "[X]",
+    "warning": "[!]",
+    "question": "[?]"
+  },
+  "ascii_art": {
+    "header": "░█▀▀░█▀█░█▀█░█▀▄░█▄█░█▀█░█▀█\n░▀▀█░█▀█░█░█░█░█░█░█░█▀█░█░█\n░▀▀▀░▀░▀░▀░▀░▀▀░░▀░▀░▀░▀░▀░▀"
+  }
+}

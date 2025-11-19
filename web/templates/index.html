@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ Sandman Web UI - Windows Sandbox Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Sandman Web UI</h1>
+            <p class="tagline">Sleep easy while running sketchy code 😴</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="configs">📋 Configurations</button>
+            <button class="tab-btn" data-tab="create">✨ Create New</button>
+            <button class="tab-btn" data-tab="templates">📦 Templates</button>
+            <button class="tab-btn" data-tab="about">ℹ️ About</button>
+        </nav>
+
+        <!-- Configurations Tab -->
+        <div class="tab-content active" id="configs-tab">
+            <div class="section-header">
+                <h2>Your Configurations</h2>
+                <button class="btn btn-primary" onclick="refreshConfigs()">🔄 Refresh</button>
+            </div>
+
+            <div id="configs-list" class="configs-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Create New Tab -->
+        <div class="tab-content" id="create-tab">
+            <h2>Create New Configuration</h2>
+
+            <form id="create-form" class="config-form">
+                <div class="form-group">
+                    <label for="name">Configuration Name</label>
+                    <input type="text" id="name" name="name" required placeholder="my-sandbox">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memory_mb">Memory (MB)</label>
+                        <input type="number" id="memory_mb" name="memory_mb" value="4096" min="256" max="131072" required>
+                        <small>256 MB to 128 GB (131072 MB)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="networking">Networking</label>
+                        <select id="networking" name="networking">
+                            <option value="Default">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vgpu">Virtual GPU</label>
+                        <select id="vgpu" name="vgpu">
+                            <option value="Default">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="protected_client">Protected Mode</label>
+                        <select id="protected_client" name="protected_client">
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="audio_input">Audio Input</label>
+                        <select id="audio_input" name="audio_input">
+                            <option value="Default">Default</option>
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="video_input">Video Input</label>
+                        <select id="video_input" name="video_input">
+                            <option value="Default">Default</option>
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clipboard_redirection">Clipboard Sharing</label>
+                        <select id="clipboard_redirection" name="clipboard_redirection">
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="printer_redirection">Printer Redirection</label>
+                        <select id="printer_redirection" name="printer_redirection">
+                            <option value="Enable">Enable</option>
+                            <option value="Disable">Disable</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mapped Folders (Optional)</label>
+                    <div id="mapped-folders-container">
+                        <!-- Folders added dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-secondary" onclick="addMappedFolder()">➕ Add Folder</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">✅ Create Configuration</button>
+                    <button type="reset" class="btn btn-secondary">🔄 Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Templates Tab -->
+        <div class="tab-content" id="templates-tab">
+            <h2>Templates</h2>
+            <p>Quick-start with pre-configured templates</p>
+
+            <div id="templates-list" class="templates-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div class="tab-content" id="about-tab">
+            <h2>About Sandman</h2>
+            <div class="about-content">
+                <p><strong>Sandman</strong> is a Windows Sandbox configuration manager that makes creating isolated environments easy and fun.</p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li>🎨 Three script versions: PowerShell, Python, Bash</li>
+                    <li>🌐 Web-based UI (you're using it!)</li>
+                    <li>📦 Pre-configured templates</li>
+                    <li>✅ Smart validation</li>
+                    <li>🔄 Real-time configuration management</li>
+                </ul>
+
+                <h3>Requirements</h3>
+                <ul>
+                    <li>Windows 10 Pro/Enterprise (build 18305+) or Windows 11</li>
+                    <li>Windows Sandbox feature enabled</li>
+                    <li>CPU virtualization enabled</li>
+                </ul>
+
+                <h3>Links</h3>
+                <p>
+                    <a href="https://github.com/shadowdevnotreal/Sandman" target="_blank">GitHub Repository</a> |
+                    <a href="https://github.com/shadowdevnotreal/Sandman/blob/main/docs/QUICK_START.md" target="_blank">Quick Start Guide</a>
+                </p>
+
+                <p class="version">Version 1.1.0 | Made with 💙 for Windows Sandbox users</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<Configuration>
+  <!-- Software Testing Sandbox Configuration -->
+  <!-- General purpose testing environment for applications -->
+
+  <MemoryInMB>6144</MemoryInMB>
+  <Networking>Default</Networking>
+  <VGpu>Default</VGpu>
+  <AudioInput>Default</AudioInput>
+  <VideoInput>Default</VideoInput>
+  <PrinterRedirection>Enable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+  <ProtectedClient>Disable</ProtectedClient>
+
+  <!-- Map software installation folder -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\SoftwareToTest</HostFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>

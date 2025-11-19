@@ -1,0 +1,23 @@
+<Configuration>
+  <!-- Office Documents Testing Sandbox Configuration -->
+  <!-- Safe environment for opening suspicious documents -->
+
+  <MemoryInMB>4096</MemoryInMB>
+  <Networking>Disable</Networking>
+  <VGpu>Default</VGpu>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <PrinterRedirection>Enable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+  <ProtectedClient>Enable</ProtectedClient>
+
+  <!-- Map documents folder READ-ONLY -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\UntrustedDocuments</HostFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>

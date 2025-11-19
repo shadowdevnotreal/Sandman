@@ -1,0 +1,21 @@
+{
+  "name": "Default",
+  "description": "Default Sandman theme with professional colors",
+  "colors": {
+    "primary": "#4a90e2",
+    "success": "#50c878",
+    "danger": "#e74c3c",
+    "warning": "#f39c12",
+    "info": "#3498db",
+    "muted": "#7f8c8d",
+    "background": "#2c3e50",
+    "foreground": "#ecf0f1"
+  },
+  "prompts": {
+    "info": "[i]",
+    "success": "[+]",
+    "error": "[!]",
+    "warning": "[~]",
+    "question": "[?]"
+  }
+}

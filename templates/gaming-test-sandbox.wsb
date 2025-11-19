@@ -1,0 +1,23 @@
+<Configuration>
+  <!-- Gaming Testing Sandbox Configuration -->
+  <!-- High performance setup for testing games and graphics applications -->
+
+  <MemoryInMB>16384</MemoryInMB>
+  <Networking>Default</Networking>
+  <VGpu>Default</VGpu>
+  <AudioInput>Enable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Enable</ClipboardRedirection>
+  <ProtectedClient>Disable</ProtectedClient>
+
+  <!-- Example: Map your games folder (adjust path as needed) -->
+  <!--
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Games</HostFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  -->
+</Configuration>

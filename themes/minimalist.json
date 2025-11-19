@@ -1,0 +1,21 @@
+{
+  "name": "Minimalist",
+  "description": "Clean and simple black and white theme",
+  "colors": {
+    "primary": "#ffffff",
+    "success": "#ffffff",
+    "danger": "#ffffff",
+    "warning": "#ffffff",
+    "info": "#ffffff",
+    "muted": "#808080",
+    "background": "#000000",
+    "foreground": "#ffffff"
+  },
+  "prompts": {
+    "info": "•",
+    "success": "✓",
+    "error": "✗",
+    "warning": "!",
+    "question": "?"
+  }
+}

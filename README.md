@@ -33,13 +33,17 @@ Sandman is your friendly neighborhood Windows Sandbox manager that makes creatin
 | Feature | What It Means For You |
 |---------|---------------------|
 | 🎨 **3 Script Flavors** | PowerShell, Python, or Bash - pick your poison! |
+| 🌐 **Web-Based UI** | Beautiful browser interface for easy management |
 | 🎮 **Interactive Menus** | No command memorization needed |
 | 🔄 **Multi-Change Mode** | Tweak multiple settings before saving |
 | 👀 **Live Preview** | See exactly what you're creating in real-time |
 | ✅ **Smart Validation** | Catches errors before you launch |
-| 📦 **Template Library** | Pre-built configs for common scenarios |
+| 📦 **10+ Templates** | Pre-built configs for every scenario |
 | 🚀 **One-Click Setup** | Get running in under 2 minutes |
 | 🛠️ **Auto Feature Enable** | Automatically sets up Windows Sandbox for you |
+| 🔌 **PowerShell Module** | Use as a module in your own scripts |
+| 📤 **Import/Export** | Share and backup configurations easily |
+| 🎨 **Custom Themes** | 5 terminal themes to match your style |
 
 ---
 
@@ -71,7 +75,13 @@ python scripts\sandman.py
 ./scripts/sandman.sh
 ```
 
-> All three versions manage the same Windows Sandbox - just different interfaces!
+**🌐 Web UI** (the fancy way!)
+```powershell
+python web/app.py
+# Open browser to http://localhost:5000
+```
+
+> All versions manage the same Windows Sandbox - just different interfaces!
 
 ---
 
@@ -140,7 +150,7 @@ This script will:
 
 ## 🎨 Templates
 
-Sandman includes ready-to-go templates:
+Sandman includes **11 ready-to-go templates**:
 
 | Template | RAM | Network | Use Case | Security |
 |----------|-----|---------|----------|----------|
@@ -148,6 +158,13 @@ Sandman includes ready-to-go templates:
 | 🔒 **Secure** | 2GB | ❌ Off | Malware analysis | 🔐 Maximum |
 | 💻 **Development** | 8GB | ✅ On | Coding projects | ⚠️ Basic |
 | 🌟 **Full-Featured** | 8GB | ✅ On | General purpose | ⚠️ Basic |
+| 🎮 **Gaming Test** | 16GB | ✅ On | Game testing | ⚠️ Basic |
+| 🦠 **Malware Analysis** | 2GB | ❌ Off | Analyzing threats | 🔐 Maximum |
+| 🌐 **Web Browsing** | 4GB | ✅ On | Safe browsing | 🔐 High |
+| 📦 **Node.js Dev** | 8GB | ✅ On | Web development | ⚠️ Basic |
+| 📄 **Office Documents** | 4GB | ❌ Off | Testing docs | 🔐 High |
+| 🐍 **Python Data Science** | 16GB | ✅ On | ML/Data analysis | ⚠️ Basic |
+| 🧪 **Software Testing** | 6GB | ✅ On | General testing | ⚠️ Basic |
 
 Just copy a template to your workspace and launch it!
 
@@ -260,17 +277,45 @@ Sandman/
 ├── 🚀 sandman.ps1                  ← Main launcher
 ├── 📦 setup.cmd                    ← Windows setup
 │
+├── 🌐 web/                         ← Web UI (NEW!)
+│   ├── app.py                     ← Flask server
+│   ├── templates/                 ← HTML templates
+│   │   └── index.html
+│   └── static/                    ← CSS/JS assets
+│       ├── css/styles.css
+│       └── js/app.js
+│
 ├── 📜 scripts/
 │   ├── wsb-manager-enhanced.ps1   ← PowerShell version (full-featured)
 │   ├── sandman.py                 ← Python version
 │   ├── sandman.sh                 ← Bash version (WSL/Git Bash)
 │   └── enable-sandbox-features.ps1 ← Feature enabler
 │
-├── 📋 templates/
-│   ├── minimal-sandbox.wsb        ← 2GB, basic config
-│   ├── secure-sandbox.wsb         ← 2GB, no network, max isolation
-│   ├── development-sandbox.wsb    ← 8GB, shared folders
-│   └── Full-Sandbox.wsb           ← 8GB, full-featured
+├── 🔌 modules/                     ← PowerShell Module (NEW!)
+│   └── Sandman/
+│       ├── Sandman.psm1           ← Module code
+│       └── Sandman.psd1           ← Module manifest
+│
+├── 📋 templates/                   ← 11 Templates (EXPANDED!)
+│   ├── minimal-sandbox.wsb
+│   ├── secure-sandbox.wsb
+│   ├── development-sandbox.wsb
+│   ├── Full-Sandbox.wsb
+│   ├── gaming-test-sandbox.wsb
+│   ├── malware-analysis-sandbox.wsb
+│   ├── web-browsing-sandbox.wsb
+│   ├── nodejs-development-sandbox.wsb
+│   ├── office-documents-sandbox.wsb
+│   ├── python-data-science-sandbox.wsb
+│   └── software-testing-sandbox.wsb
+│
+├── 🎨 themes/                      ← Terminal Themes (NEW!)
+│   ├── default.json
+│   ├── cyberpunk.json
+│   ├── matrix.json
+│   ├── minimalist.json
+│   ├── ocean.json
+│   └── README.md
 │
 └── 📚 docs/
     ├── QUICK_START.md             ← 5-minute guide
@@ -414,16 +459,23 @@ See [LICENSE](LICENSE) for the boring legal stuff.
 
 ---
 
+## 🎉 New in v1.1.0
+
+- ✅ **Web-based UI** - Sleek Flask-based web interface
+- ✅ **10+ Templates** - Specialized configs for every use case
+- ✅ **PowerShell Module** - Use Sandman in your own scripts
+- ✅ **Import/Export** - Share and backup configurations
+- ✅ **5 Custom Themes** - Personalize your terminal experience
+
 ## 🗺️ Roadmap
 
 What's coming next:
 
-- [ ] 🌐 Web-based configuration UI
-- [ ] 📦 More templates for specific use cases
-- [ ] 🔌 PowerShell module for easier integration
 - [ ] 🤖 CI/CD integration helpers
-- [ ] 📤 Configuration import/export tools
-- [ ] 🎨 Custom themes for the terminal UI
+- [ ] 📊 Usage statistics and analytics
+- [ ] 🔄 Configuration version control
+- [ ] 🎯 Preset profiles (gaming, dev, security)
+- [ ] 🌍 Multi-language support
 
 Got ideas? [Let us know!](https://github.com/shadowdevnotreal/Sandman/discussions)
 
@@ -444,11 +496,15 @@ Need help?
 
 **🟢 Active Development** - Regularly maintained and updated!
 
-### Version 1.0.0
+### Version 1.1.0 (Current)
 
-- ✅ PowerShell, Python, and Bash versions
+- ✅ PowerShell, Python, and Bash script versions
+- ✅ Web-based UI with Flask
+- ✅ PowerShell module for scripting
+- ✅ 11 specialized templates
+- ✅ Import/Export functionality
+- ✅ 5 custom terminal themes
 - ✅ Multi-modification mode with live preview
-- ✅ 4 pre-configured templates
 - ✅ Automated Windows Sandbox enablement
 - ✅ Interactive menus with validation
 - ✅ Automatic configuration backups
