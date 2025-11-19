@@ -1,31 +1,34 @@
-# Sandman - Cross-Platform Sandbox Manager
+# Sandman - Windows Sandbox Manager
 
-> Simple, powerful, cross-platform sandbox configuration and management
+> Simple, powerful Windows Sandbox configuration and management
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform: Windows | Linux | macOS](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)](https://github.com/shadowdevnotreal/Sandman)
+[![Platform: Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](https://github.com/shadowdevnotreal/Sandman)
 
 ---
 
 ## What is Sandman?
 
-Sandman is a comprehensive sandbox management tool that makes it easy to create, configure, and launch isolated environments across Windows, Linux, and macOS. Whether you're testing software, running untrusted code, or creating development environments, Sandman provides a simple interface with powerful features.
+Sandman is a comprehensive Windows Sandbox management tool that makes it easy to create, configure, and launch isolated Windows environments. Whether you're testing software, running untrusted code, or creating development environments, Sandman provides a simple interface with powerful features.
+
+**Windows-Only:** Sandman uses Windows Sandbox, a feature available in Windows 10 Pro/Enterprise (build 18305+) and Windows 11.
 
 ### Key Features
 
-- **Cross-Platform Support** - Works on Windows, Linux, and macOS
+- **Multiple Script Versions** - PowerShell, Python, or Bash (WSL/Git Bash)
 - **Interactive Menus** - Easy-to-use terminal interface
 - **Multi-Modification Mode** - Make multiple changes before saving
 - **Live Preview** - See your configuration in real-time
 - **Validation** - Pre-flight checks before launching
 - **Template System** - Quick-start with pre-configured templates
 - **Automated Setup** - One-command installation
+- **Feature Enablement** - Automatic Windows Sandbox feature setup
 
 ---
 
 ## Quick Start
 
-### Windows
+### Windows (PowerShell)
 
 ```powershell
 # Run setup
@@ -35,37 +38,58 @@ Sandman is a comprehensive sandbox management tool that makes it easy to create,
 PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1
 ```
 
-### Linux
+### Alternative Script Versions
 
-```bash
-# Run setup
-chmod +x setup.sh && ./setup.sh
-
-# Launch Sandman
-./scripts/sandman.sh
+**Python version:**
+```powershell
+python scripts\sandman.py
 ```
 
-### macOS
-
+**Bash version (WSL or Git Bash):**
 ```bash
-# Run setup
-chmod +x setup.sh && ./setup.sh
-
-# Launch Sandman
 ./scripts/sandman.sh
 ```
 
 ---
 
-## Platform Support
+## Requirements
 
-| Platform | Sandbox Backend | Config Format | Status |
-|----------|----------------|---------------|--------|
-| **Windows** | Windows Sandbox | `.wsb` (XML) | ✅ Full Support |
-| **Linux** | Docker / systemd-nspawn | `.sandbox` (INI) | ✅ Full Support |
-| **macOS** | Docker | `.sandbox` (INI) | ✅ Full Support |
+### Windows System Requirements
 
-See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specific information.
+- **OS**: Windows 10 Pro/Enterprise (build 18305+) or Windows 11
+- **Edition**: Pro, Enterprise, or Education (NOT Home)
+- **Feature**: Windows Sandbox (can be auto-enabled with included script)
+- **CPU**: Virtualization enabled in BIOS (Intel VT-x or AMD-V)
+- **RAM**: At least 4GB recommended
+
+### Script Requirements
+
+- **PowerShell**: Version 5.1+ (built-in on Windows 10/11)
+- **Python**: Version 3.6+ (optional, for Python version)
+- **Bash**: WSL or Git Bash (optional, for Bash version)
+
+---
+
+## Enable Windows Sandbox
+
+Use the included automated script:
+
+```powershell
+# Run as Administrator
+.\scripts\enable-sandbox-features.ps1
+```
+
+This script will:
+- Check Windows version and edition compatibility
+- Verify CPU virtualization support
+- Enable Windows Sandbox feature
+- Prompt for restart if needed
+
+**Manual enablement:**
+1. Open Settings → Apps → Optional Features
+2. Click "More Windows features"
+3. Check "Windows Sandbox"
+4. Restart computer
 
 ---
 
@@ -87,7 +111,10 @@ See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specifi
 - **Automatic Backups** - Never lose your configurations
 - **Template Library** - Pre-configured setups for common use cases
 - **Path Validation** - Ensures shared folders exist
-- **Memory Limits** - Configurable resource allocation
+- **Memory Limits** - Configurable resource allocation (256MB - 128GB)
+- **Network Control** - Enable/disable network access per sandbox
+- **vGPU Support** - Hardware acceleration options
+- **Folder Mapping** - Share folders between host and sandbox
 
 ---
 
@@ -95,19 +122,19 @@ See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specifi
 
 ### Create a New Sandbox
 
-```bash
-./sandman.sh
+```powershell
+.\sandman.ps1
 # Press [1] Create new configuration
 # Enter name: my-sandbox
 # Enter memory (MB): 4096
 # Enable networking? y
-# Shared folder path: /home/user/share
+# Shared folder path: C:\Users\YourName\Documents\share
 ```
 
 ### Modify Existing Configuration
 
-```bash
-./sandman.ps1
+```powershell
+.\sandman.ps1
 # Press [5] Modify
 # Select configuration
 # Make changes (memory, networking, folders)
@@ -116,9 +143,8 @@ See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specifi
 
 ### Launch a Sandbox
 
-```bash
-# Linux/macOS
-./scripts/sandman.sh
+```powershell
+.\sandman.ps1
 # Press [6] Launch sandbox
 # Select configuration
 # Sandbox starts!
@@ -128,15 +154,13 @@ See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for detailed platform-specifi
 
 ## Configuration
 
-Sandman uses `config.json` for cross-platform settings:
+Sandman uses `config.json` for settings:
 
 ```json
 {
   "version": "1.0.0",
   "workspace": {
-    "windows": "%USERPROFILE%\\Documents\\wsb-files",
-    "linux": "~/.local/share/sandman",
-    "macos": "~/Library/Application Support/Sandman"
+    "windows": "%USERPROFILE%\\Documents\\wsb-files"
   },
   "git": {
     "includeCoAuthoredBy": false
@@ -145,6 +169,9 @@ Sandman uses `config.json` for cross-platform settings:
     "defaultMemoryMB": 4096,
     "defaultNetworking": "Default",
     "autoBackup": true
+  },
+  "editor": {
+    "windows": "notepad.exe"
   }
 }
 ```
@@ -157,8 +184,6 @@ Edit `config.json` to customize:
 - **Editor preference** - Your favorite text editor
 - **Auto-backup** - Automatic `.bak` file creation
 
-See [Configuration Guide](docs/CROSS_PLATFORM.md#configuration-file-configjson) for all options.
-
 ---
 
 ## Templates
@@ -166,42 +191,37 @@ See [Configuration Guide](docs/CROSS_PLATFORM.md#configuration-file-configjson) 
 Sandman includes pre-configured templates:
 
 - **Full-Featured** - 8GB RAM, networking enabled, shared folder
-- **Secure** - 2GB RAM, networking disabled, no shared folders
+- **Secure** - 2GB RAM, networking disabled, no shared folders, protected client
 - **Minimal** - 2GB RAM, basic configuration
-- **Development** - 8GB RAM, optimized for development work
+- **Development** - 8GB RAM, optimized for development work with folder mapping
 
-Export sample templates with option `[5]` or `[6]` in the menu.
+Find templates in the `templates/` directory.
+
+---
+
+## Script Versions
+
+Sandman provides three script versions for different workflows:
+
+| Version | File | Best For |
+|---------|------|----------|
+| **PowerShell (Enhanced)** | `scripts/wsb-manager-enhanced.ps1` | Full-featured, multi-modification mode, best UX |
+| **Python** | `scripts/sandman.py` | Cross-scripting workflows, Python developers |
+| **Bash** | `scripts/sandman.sh` | WSL/Git Bash users, Unix-like commands |
+
+All versions work with the same `.wsb` configuration files and provide the same core functionality.
+
+See [SCRIPT_VERSIONS.md](docs/SCRIPT_VERSIONS.md) for detailed comparison.
 
 ---
 
 ## Documentation
 
 - **[Quick Start Guide](docs/QUICK_START.md)** - Get up and running fast
-- **[User Guide](docs/USER_GUIDE.md)** - Comprehensive feature documentation
-- **[Cross-Platform Guide](docs/CROSS_PLATFORM.md)** - Platform-specific information
-- **[Script Versions](docs/SCRIPT_VERSIONS.md)** - PowerShell vs Bash versions
+- **[Script Versions](docs/SCRIPT_VERSIONS.md)** - PowerShell vs Python vs Bash
 - **[Contributing Guide](docs/CONTRIBUTING.md)** - How to contribute
-
----
-
-## Requirements
-
-### Windows
-- Windows 10 Pro/Enterprise (build 18305+) or Windows 11
-- Windows Sandbox feature enabled
-- PowerShell 5.1 or later (built-in)
-
-### Linux
-- Any modern distribution
-- Docker or systemd-nspawn
-- Bash shell
-- `jq` (optional, for JSON parsing)
-
-### macOS
-- macOS 10.14 (Mojave) or later
-- Docker Desktop for Mac
-- Bash shell
-- `jq` (optional, via Homebrew)
+- **[Pattern Library](docs/pattern-library.md)** - Reusable development patterns
+- **[Resolution Log](docs/project-resolution-log.md)** - Development audit trail
 
 ---
 
@@ -209,30 +229,28 @@ Export sample templates with option `[5]` or `[6]` in the menu.
 
 ### Automated Setup
 
-**Windows:**
 ```powershell
+# Clone repository
+git clone https://github.com/shadowdevnotreal/Sandman.git
+cd Sandman
+
+# Run setup
 .\setup.cmd
 ```
 
-**Linux/macOS:**
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-
 The setup script will:
-- Create workspace directory
-- Check dependencies
-- Make scripts executable
-- Optionally install recommended packages
+- Create workspace directory (`%USERPROFILE%\Documents\wsb-files`)
+- Verify Windows Sandbox availability
+- Check PowerShell version
+- Optionally enable Windows Sandbox feature
 - Create launcher shortcuts
 
 ### Manual Setup
 
 1. Clone or download this repository
-2. Create workspace directory manually
-3. Make scripts executable (Linux/macOS)
-4. Install Docker (Linux/macOS) or enable Windows Sandbox (Windows)
+2. Create workspace directory manually: `mkdir "%USERPROFILE%\Documents\wsb-files"`
+3. Enable Windows Sandbox feature (see Requirements section)
+4. Run `.\sandman.ps1` to start
 
 ---
 
@@ -241,68 +259,97 @@ The setup script will:
 ```
 Sandman/
 ├── README.md                  # This file
+├── LICENSE                    # MIT License
+├── .gitignore                # Git ignore patterns
 ├── config.json                # Configuration file
 ├── setup.cmd                  # Windows installer
-├── setup.sh                   # Linux/macOS installer
-├── sandman.ps1                # Main Windows launcher
+├── sandman.ps1                # Main PowerShell launcher
 │
-├── scripts/                   # Platform-specific scripts
-│   ├── wsb-manager-enhanced.ps1   # Enhanced PowerShell version
-│   ├── wsb-manager-fixed.ps1      # Fixed PowerShell version
-│   ├── sandman.sh                  # Bash version (Linux/macOS)
+├── scripts/                   # Script versions
+│   ├── wsb-manager-enhanced.ps1   # Enhanced PowerShell (primary)
+│   ├── sandman.py                 # Python version
+│   ├── sandman.sh                 # Bash version (WSL/Git Bash)
 │   └── enable-sandbox-features.ps1 # Windows feature enabler
 │
 ├── templates/                 # Sandbox templates
-│   ├── Full-Sandbox.wsb      # Full-featured template
-│   ├── minimal-sandbox.wsb   # Minimal template
-│   └── secure-sandbox.wsb    # Security-focused template
+│   ├── Full-Sandbox.wsb       # Full-featured template
+│   ├── minimal-sandbox.wsb    # Minimal template
+│   ├── secure-sandbox.wsb     # Security-focused template
+│   └── development-sandbox.wsb # Development environment
 │
 └── docs/                      # Documentation
-    ├── QUICK_START.md        # Quick start guide
-    ├── USER_GUIDE.md         # Comprehensive user guide
-    ├── CROSS_PLATFORM.md     # Cross-platform information
-    ├── SCRIPT_VERSIONS.md    # Version comparison
-    ├── CONTRIBUTING.md       # Contribution guidelines
-    └── legacy/               # Legacy documentation
+    ├── QUICK_START.md         # Quick start guide
+    ├── SCRIPT_VERSIONS.md     # Version comparison
+    ├── CONTRIBUTING.md        # Contribution guidelines
+    ├── pattern-library.md     # Development patterns
+    └── project-resolution-log.md # Audit trail
 ```
 
 ---
 
 ## Troubleshooting
 
-### Windows
+### "Windows Sandbox is not available"
 
-**Problem:** "Windows Sandbox is not available"
-- **Solution:** Enable Windows Sandbox feature (Settings → Apps → Optional Features)
+**Problem:** Windows Sandbox feature is not enabled
+**Solution:**
+```powershell
+# Run as Administrator
+.\scripts\enable-sandbox-features.ps1
+# Or manually enable via Settings → Apps → Optional Features
+```
 
-**Problem:** PowerShell execution policy error
-- **Solution:** `PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1`
+### PowerShell execution policy error
 
-### Linux/macOS
+**Problem:** Script execution blocked by policy
+**Solution:**
+```powershell
+PowerShell -ExecutionPolicy Bypass -File .\sandman.ps1
+```
 
-**Problem:** "Docker not found"
-- **Solution:** Install Docker: `sudo apt-get install docker.io` (Linux) or Docker Desktop (macOS)
+### "This edition of Windows doesn't support Windows Sandbox"
 
-**Problem:** Permission denied
-- **Solution:** Add user to docker group: `sudo usermod -aG docker $USER`
+**Problem:** Running Windows Home edition
+**Solution:** Windows Sandbox requires Windows 10/11 Pro, Enterprise, or Education. Upgrade your Windows edition.
 
-See [Cross-Platform Guide](docs/CROSS_PLATFORM.md) for more troubleshooting.
+### "Virtualization is not enabled"
+
+**Problem:** CPU virtualization disabled in BIOS
+**Solution:**
+1. Restart computer and enter BIOS/UEFI (usually F2, F10, or DEL)
+2. Find "Intel VT-x" or "AMD-V" setting
+3. Enable virtualization
+4. Save and exit BIOS
+
+### Configuration file won't launch
+
+**Problem:** Invalid .wsb configuration
+**Solution:**
+```powershell
+# Use validation feature
+.\sandman.ps1
+# Press [4] Validate & Inspect
+# Fix any reported errors
+```
 
 ---
 
 ## Use Cases
 
 ### Software Testing
-Create isolated environments to test software without affecting your main system.
+Create isolated environments to test software without affecting your main system. Perfect for trying new applications or updates.
 
 ### Security Research
-Run untrusted code safely in a sandboxed environment.
+Run untrusted code safely in a sandboxed environment with network isolation.
 
 ### Development
-Set up clean development environments with specific configurations.
+Set up clean development environments with specific configurations and shared project folders.
 
 ### Training & Demos
-Create reproducible environments for training or demonstrations.
+Create reproducible environments for training sessions or product demonstrations.
+
+### Malware Analysis
+Safely examine suspicious files in an isolated environment (use secure template with networking disabled).
 
 ---
 
@@ -320,13 +367,12 @@ We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for
 
 ### v1.0.0 (Current)
 - Initial release
-- Cross-platform support (Windows, Linux, macOS)
-- Multi-modification mode
-- Live configuration preview
-- Template system
-- Automated setup scripts
-
-See full version history in [legacy documentation](docs/legacy/).
+- PowerShell, Python, and Bash script versions
+- Multi-modification mode with live preview
+- Template system with 4 pre-configured templates
+- Automated Windows Sandbox feature enablement
+- Interactive menus with validation
+- Automatic configuration backups
 
 ---
 
@@ -346,7 +392,6 @@ This project was built using a systematic, quality-focused approach:
 
 **Special Thanks:**
 - Windows Sandbox team at Microsoft
-- Docker community
 - All contributors and users
 
 ---
@@ -364,22 +409,20 @@ This project was built using a systematic, quality-focused approach:
 **Active Development** - Regularly maintained and updated.
 
 ### Roadmap
-- [ ] Python version for cross-platform scripting
 - [ ] Web-based configuration UI
-- [ ] Cloud sandbox support (AWS, Azure, GCP)
-- [ ] Template marketplace
-- [ ] CI/CD integration
+- [ ] Additional templates for specific use cases
+- [ ] PowerShell module for easier integration
+- [ ] CI/CD integration helpers
+- [ ] Configuration import/export tools
 
 ---
 
-**Made with precision and care.**
+**Made with precision and care for Windows Sandbox users.**
 
 ---
 
 ### Quick Links
 
 - [Get Started](docs/QUICK_START.md) - Installation and first steps
-- [User Guide](docs/USER_GUIDE.md) - Complete feature documentation
-- [Platform Guide](docs/CROSS_PLATFORM.md) - Platform-specific setup
+- [Script Versions](docs/SCRIPT_VERSIONS.md) - Choose your preferred version
 - [Contribute](docs/CONTRIBUTING.md) - Join the development
-- [Legacy Docs](docs/legacy/) - Original Windows-specific documentation
