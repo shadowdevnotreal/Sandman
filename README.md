@@ -6,6 +6,8 @@
 
 **The ultimate Windows Sandbox configuration tool that makes isolation effortless**
 
+<img width="1536" height="1024" alt="Sandman Banner" src="https://github.com/user-attachments/assets/0205a8ec-fa74-4029-b641-cc01d349ec86" />
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](https://github.com/shadowdevnotreal/Sandman)
 [![Made with PowerShell](https://img.shields.io/badge/Made%20with-PowerShell-blue)](https://github.com/PowerShell/PowerShell)
@@ -23,13 +25,6 @@ Ever wanted to test suspicious software without risking your main system? Need a
 Sandman is your friendly neighborhood Windows Sandbox manager that makes creating isolated environments as easy as falling asleep. Whether you're a developer testing new code, a security researcher analyzing malware, or just someone who likes to play it safe, Sandman gives you powerful sandbox control with a ridiculously simple interface.
 
 > **Windows-Only:** Sandman uses Windows Sandbox (Windows 10/11 Pro/Enterprise, build 18305+)
-
-<div align="center">
-
-<!-- Add your screenshot here! -->
-<!-- ![Sandman in action](docs/images/screenshot.png) -->
-
-</div>
 
 ---
 
