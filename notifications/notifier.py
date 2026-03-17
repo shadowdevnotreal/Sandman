@@ -74,23 +74,31 @@ class SandmanNotifier:
         self.config["sound"] = enabled
         self._save_config()
 
+    @staticmethod
+    def _sanitize_xml(text: str) -> str:
+        """Sanitize text for safe inclusion in XML and PowerShell"""
+        # Escape XML special characters
+        text = text.replace("&", "&amp;")
+        text = text.replace("<", "&lt;")
+        text = text.replace(">", "&gt;")
+        text = text.replace('"', "&quot;")
+        text = text.replace("'", "&apos;")
+        # Remove PowerShell injection characters
+        text = text.replace("`", "")
+        text = text.replace("$(", "(")
+        return text
+
     def _send_windows_toast(self, title: str, message: str,
                            notification_type: NotificationType = NotificationType.INFO):
         """Send Windows toast notification using PowerShell"""
         if not self.is_enabled():
             return False, "Notifications are disabled"
 
-        # Map notification types to Windows icons
-        icon_map = {
-            NotificationType.INFO: "Info",
-            NotificationType.SUCCESS: "Success",
-            NotificationType.WARNING: "Warning",
-            NotificationType.ERROR: "Error"
-        }
+        # Sanitize inputs to prevent injection
+        safe_title = self._sanitize_xml(title)
+        safe_message = self._sanitize_xml(message)
 
-        # Escape single quotes in strings
-        title = title.replace("'", "''")
-        message = message.replace("'", "''")
+        audio_tag = "<audio silent='true'/>" if not self.config.get('sound', True) else ""
 
         # Build PowerShell script for toast notification
         ps_script = f"""
@@ -106,11 +114,11 @@ $template = @"
 <toast>
     <visual>
         <binding template="ToastGeneric">
-            <text>{title}</text>
-            <text>{message}</text>
+            <text>{safe_title}</text>
+            <text>{safe_message}</text>
         </binding>
     </visual>
-    {"<audio silent='true'/>" if not self.config.get('sound', True) else ""}
+    {audio_tag}
 </toast>
 "@
 
@@ -127,12 +135,14 @@ $toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
                 text=True,
                 timeout=5
             )
-            return True, "Notification sent"
+            if result.returncode == 0:
+                return True, "Notification sent"
+            return False, f"Notification failed: {result.stderr.strip()}"
         except subprocess.TimeoutExpired:
             return False, "Notification timed out"
         except Exception as e:
             # Fallback: Try using BurntToast module or msg command
-            return self._send_fallback_notification(title, message)
+            return self._send_fallback_notification(safe_title, safe_message)
 
     def _send_fallback_notification(self, title: str, message: str):
         """Fallback notification method using msg command"""
@@ -146,7 +156,7 @@ $toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
                 timeout=2
             )
             return True, "Notification sent (fallback)"
-        except:
+        except Exception:
             # If all methods fail, silently continue
             return False, "Could not send notification"
 
