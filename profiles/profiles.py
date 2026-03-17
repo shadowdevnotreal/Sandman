@@ -81,8 +81,10 @@ class ProfileManager:
         """Get a specific profile"""
         profile = self.data["profiles"].get(name)
         if profile:
-            profile["name"] = name
-        return profile
+            result = profile.copy()
+            result["name"] = name
+            return result
+        return None
 
     def list_profiles(self, tag: Optional[str] = None) -> List[Dict]:
         """List all profiles, optionally filtered by tag"""
@@ -147,8 +149,7 @@ class ProfileManager:
         # Launch Windows Sandbox
         try:
             subprocess.Popen(
-                ["WindowsSandbox.exe", str(config_path)],
-                shell=True
+                ["WindowsSandbox.exe", str(config_path)]
             )
 
             # Update usage statistics
@@ -278,19 +279,27 @@ class ProfileManager:
         workspace = os.path.expandvars("%USERPROFILE%\\Documents\\wsb-files")
         config_path = Path(workspace) / f"{config_name}.wsb"
 
+        # Sanitize values to prevent PowerShell injection
+        safe_desktop = str(desktop_path).replace('"', '`"').replace("'", "''")
+        safe_config = str(config_path).replace('"', '`"').replace("'", "''")
+        safe_desc = profile.get('description', '').replace('"', '`"').replace("'", "''")
+        # Remove backtick sequences that could be used for injection
+        for val in [safe_desktop, safe_config, safe_desc]:
+            val = val.replace("`n", "").replace("`r", "")
+
         # Create PowerShell script to create shortcut
         ps_script = f'''
 $WshShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("{desktop_path}")
+$Shortcut = $WshShell.CreateShortcut("{safe_desktop}")
 $Shortcut.TargetPath = "WindowsSandbox.exe"
-$Shortcut.Arguments = '"{config_path}"'
-$Shortcut.Description = "{profile['description']}"
+$Shortcut.Arguments = '"{safe_config}"'
+$Shortcut.Description = "{safe_desc}"
 $Shortcut.Save()
 '''
 
         try:
             subprocess.run(
-                ["powershell", "-Command", ps_script],
+                ["powershell", "-NoProfile", "-Command", ps_script],
                 check=True,
                 capture_output=True
             )

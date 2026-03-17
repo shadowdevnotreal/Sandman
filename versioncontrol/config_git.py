@@ -246,9 +246,14 @@ analytics.json
         # Commit the reversion
         message = f"Revert {config_name} to commit {commit_hash[:8]}"
         success, output = self._run_git_command("add", config_file)
+        if not success:
+            return False, f"Failed to stage reverted file: {output}"
+
         success, output = self._run_git_command(
             "commit", "-m", message, "--author", "Sandman <sandman@local>"
         )
+        if not success:
+            return False, f"Failed to commit reversion: {output}"
 
         return True, f"Configuration reverted to commit {commit_hash[:8]}"
 

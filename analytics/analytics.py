@@ -136,13 +136,19 @@ class AnalyticsTracker:
         """Get overall statistics"""
         stats = self.data["statistics"].copy()
 
-        # Calculate average session duration
-        if stats["total_launches"] > 0 and stats["total_runtime_minutes"] > 0:
+        # Calculate average session duration (only from launches with tracked duration)
+        tracked_launches = sum(
+            1 for launch in self.data["launches"]
+            if launch.get("duration_minutes") is not None
+        )
+        if tracked_launches > 0 and stats["total_runtime_minutes"] > 0:
             stats["average_session_minutes"] = round(
-                stats["total_runtime_minutes"] / stats["total_launches"], 2
+                stats["total_runtime_minutes"] / tracked_launches, 2
             )
+            stats["tracked_launches"] = tracked_launches
         else:
             stats["average_session_minutes"] = 0
+            stats["tracked_launches"] = 0
 
         # Add recent activity
         stats["last_7_days"] = self._get_recent_launches(7)
